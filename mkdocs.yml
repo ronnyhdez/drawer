@@ -1,0 +1,8 @@
+site_name: drawer
+site_url: https://ronnyhdez.github.io/drawer/
+site_author: Ronny A. Hernández Mora
+theme:
+   name: material
+markdown_extensions:
+   - toc:
+      permalink: []

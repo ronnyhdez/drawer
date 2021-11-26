@@ -11,19 +11,21 @@
         <meta name="author" content="Ronny A. Hernández Mora">
       
       
-      <link rel="icon" href="/drawer/assets/images/favicon.png">
+        <link rel="canonical" href="https://ronnyhdez.github.io/drawer/google_drive_api/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
     
     
       
-        <title>drawer</title>
+        <title>Google drive api - drawer</title>
       
     
     
-      <link rel="stylesheet" href="/drawer/assets/stylesheets/main.802231af.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
       
         
-        <link rel="stylesheet" href="/drawer/assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
         
       
     
@@ -55,7 +57,7 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
-    <script>function __prefix(e){return new URL("/drawer/",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -69,7 +71,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/drawer/." title="drawer" class="md-header__button md-logo" aria-label="drawer" data-md-component="logo">
+    <a href=".." title="drawer" class="md-header__button md-logo" aria-label="drawer" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -88,7 +90,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Google drive api
             
           </span>
         </div>
@@ -153,7 +155,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/drawer/." title="drawer" class="md-nav__button md-logo" aria-label="drawer" data-md-component="logo">
+    <a href=".." title="drawer" class="md-nav__button md-logo" aria-label="drawer" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -172,7 +174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/drawer/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         Drawer: Where I keep my R notes (and other dev stuff)
       </a>
     </li>
@@ -185,11 +187,19 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/drawer/google_drive_api/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Google drive api
       </a>
+      
     </li>
   
 
@@ -202,7 +212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/drawer/questions_in_r/" class="md-nav__link">
+      <a href="../questions_in_r/" class="md-nav__link">
         Create questions with `yesno` package
       </a>
     </li>
@@ -217,7 +227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/drawer/stringr_tips/" class="md-nav__link">
+      <a href="../stringr_tips/" class="md-nav__link">
         How to extract numbers from a string
       </a>
     </li>
@@ -235,7 +245,89 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
+                
+                  <h1>Google drive api</h1>
+                
+                <p>A mockup documented function to connect with the google drive API
+through R, check the files that exist in the drive folder, compare to
+what you have in your local folder and download just those that you
+don’t have locally.</p>
+<p>Could be part of some workflow in an organization that uses google drive
+as their site to keep their data files (like a research lab)</p>
+<pre><code>#' @import dplyr
+NULL
+
+#' @title Download data from google drive
+#' 
+#' @author Ronny Alexander Hernández Mora
+#' 
+#' @description This function will check in a local folder, the existing files
+#' and compare which ones are missing from an specific folder in google drive.
+#' It will download the missing files
+#' 
+#' @param drive_path The folder in google drive containing the files
+#' @param local_directory The local folder in which we want to download the 
+#' files from google drive.
+#' 
+#' @example 
+#' \dontrun{
+#' get_drive_data(drive_path = "data_workflows/data", 
+#'                local_directory = "datos")
+#'}
+#'
+get_drive_data &lt;- function(drive_path, local_directory) {
+
+  options(gargle_oauth_email = "my_email@gmail.com")
+
+  # Revisar archivos locales
+  archivos_existentes &lt;- fs::dir_ls(local_directory) %&gt;% 
+    stringr::str_remove(paste0(local_directory, "/"))
+
+  # Revisar archivos en drive
+  camino &lt;- drive_path
+
+  # Check data available
+  archivos_drive &lt;- googledrive::drive_ls(path = camino)
+
+  # archivos_drive &lt;- archivos %&gt;% 
+  #   select(name)
+
+  # Obtener nombres de archivos faltantes
+  # Suponiendo que siempre tenemos mas archivos en drive
+  archivos_faltantes &lt;- archivos_drive %&gt;% 
+    filter(!name %in% archivos_existentes)
+
+  # Loop para traerse archivos que estan en drive pero no locales
+  for (i in archivos_faltantes$name) {
+    archivos_faltantes %&gt;%
+      select(id) %&gt;%
+      slice(1) %&gt;%
+      pull() %&gt;%
+      googledrive::drive_download(
+        path = paste0("datos/", i), overwrite = TRUE
+      )
+  }
+}
+</code></pre>
+<p>After the function is loaded in your Global environment, coupled with a
+<code>map()</code> and if all the data files have the same variables, we can read
+everything together in just one data frame:</p>
+<pre><code># Check drive and download data ------------------------------
+get_drive_data(drive_path = "data_workflows/data", 
+               local_directory = "datos")
+# Read data --------------------------------------------------
+# Create object with files of interest
+files &lt;- dir_ls(path = "datos", glob = "datos/principe_*")
+
+principe &lt;- files %&gt;% 
+  map_dfr(read_csv, .id = "file_id")
+</code></pre>
+                
+              
+              
+                
+
 
               
             </article>
@@ -246,6 +338,41 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Drawer: Where I keep my R notes (and other dev stuff)" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Drawer: Where I keep my R notes (and other dev stuff)
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../questions_in_r/" class="md-footer__link md-footer__link--next" aria-label="Next: Create questions with `yesno` package" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Create questions with `yesno` package
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -266,10 +393,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "/drawer/", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "/drawer/assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
     
     
-      <script src="/drawer/assets/javascripts/bundle.756773cc.min.js"></script>
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
       
     
   </body>

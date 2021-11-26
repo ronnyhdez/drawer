@@ -15,24 +15,24 @@ this notes where kept in my desk **drawer**
 
 ## How this site was built?
 
-This site is hosted in GitHub. Just create your repo, go to configuration 
-and enable github pages.
+This site is hosted in GitHub. I just created the repo, went to configuration 
+and enabled github pages.
 
 Then, with a bit of help of [mkdocs](https://www.mkdocs.org/) and the
 [material theme](https://squidfunk.github.io/mkdocs-material/) the site 
 came to life.
 
-And now all my [Rmarkdown](https://rmarkdown.rstudio.com/) fit in this site! 
+And now all my [Rmarkdown](https://rmarkdown.rstudio.com/) notes fits in this site! 
 
 Also, I was kind of ["obstinado"](https://www.linguee.com/english-spanish/search?source=spanish&query=obstinado) having to repeat a couple of steps for
-each note that I wanted to deploy, so I created some (around 3) R functions
+each note that I wanted to deploy, so I created some R functions (around 3)
 to deal with this workflow and put everything together in a small R package
 that I called [docmaker](https://github.com/ronnyhdez/docmaker) (Available
 just on GitHub)
 
 If you are new to this kind of documentation, I recommend you to check
 at least the package documentation, so you can find how to set-up
-everything to create your own site.
+everything to create your own site and give some freedom to your documentation.
 
 ## Who am I?
 

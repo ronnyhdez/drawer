@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://ronnyhdez.github.io/drawer/</loc>
+         <lastmod>2021-11-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ronnyhdez.github.io/drawer/check_path/</loc>
+         <lastmod>2021-11-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ronnyhdez.github.io/drawer/questions_in_r/</loc>
+         <lastmod>2021-11-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ronnyhdez.github.io/drawer/stringr_tips/</loc>
+         <lastmod>2021-11-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>

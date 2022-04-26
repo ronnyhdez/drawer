@@ -36,6 +36,7 @@ str_extract(string_with_numbers , "\\d+")
 library(stringr)
 library(tibble)
 library(dplyr)
+library(tidyr)
 
 ## The data frames with the column that I need
 check <- tribble(
@@ -56,6 +57,9 @@ check %>%
 # Solution 2 (This one works!)
 check %>% 
   mutate(test = str_extract(geo, "\\[(.*?)\\]") ) %>% 
-  select(test)
+  select(test) %>% 
+  separate(col = "test", into = c("lat", "long"), sep = ",") %>% 
+  mutate(lat = str_extract(lat, "-?[0-9.]+"),
+         long = str_extract(long, "-?[0-9.]+"))
 ```
 

@@ -1,0 +1,108 @@
+## How to set up vim
+
+There are two config files: one for vim, otherone for nvim
+
+ - vim: ~/.vimrc
+ - nvim: ~/.config/nvim/init.vim
+
+I cannot find at this point a config file for vim O.o
+So, I will just create a `.vimrc` under my home:
+
+Now, given that I have installed in my computer vim and nvim, the way that
+the configuration files interact, seems that nvim takes prevalence.
+
+So, all the changes I made in the ~/.vimrc are not going to be stablished
+unless I source the vimrc in the init.vim
+
+As an example, this is the way my init.vim looks like:
+
+```
+" =============================
+" Source vimrc
+" ============================
+source ~/.vimrc
+
+" =============================
+" Plugins
+" =============================
+call plug#begin()
+ Plug 'JuliaEditorSupport/julia-vim'
+ Plug 'kdheepak/JuliaFormatter.vim'
+ Plug 'jpalardy/vim-slime'
+ Plug 'neoclide/coc.nvim', {'branch': 'release'}
+ Plug 'morhetz/gruvbox'
+call plug#end()
+
+" =============================
+" VIM Slime
+" =============================
+let g:slime_target = "neovim"
+```
+
+# Creating and modifying the vimrc
+
+```
+vim ~/.vimrc
+```
+## Settings for vim
+
+First I'm going to edit the vimrc file. One trick to try the configurations 
+that I want, is that if I'm working on vim I can go to normal mode and try 
+for example `:set relative number` and that will include the modification for 
+that vim session.
+
+## Customizing vim (plugins)
+
+Plugins are for this. Different from the settings that are things that comes 
+already with vim, the plugins are made for this.
+
+To use plugins, we need a plugin manager. One of the most used ones is the
+`vim-plug`
+
+In order to use plugins (after installing the vim-plug) our .vimrc file should
+contain a section that starts and finish with this:
+
+```
+call plug#begin('~/.vim/plugged')
+
+call plug#end()
+```
+
+Now, if we want to install a plugin, we should write in the middle of those 
+two calls the plugin. Save and then run
+
+```
+:PlugInstall
+```
+
+And that's it. It will download and install the files needed. As an example, to
+change a color scheme we can do:
+
+```
+call plug#begin('~/.vim/plugged')
+Plug 'gruvbox-community/gruvbox'
+call plug#end()
+```
+
+After the installation, we can set:
+
+```
+:colorscheme gruvbox
+```
+If I want to know the pluggins installed, and given that we are using the
+vim-plug we can check the pluggins in use with:
+
+```
+:PlugStatus
+```
+
+
+
+
+
+
+
+
+
+
+

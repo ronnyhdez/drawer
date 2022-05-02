@@ -11,14 +11,14 @@
         <meta name="author" content="Ronny A. Hernández Mora">
       
       
-        <link rel="canonical" href="https://ronnyhdez.github.io/drawer/code_functions_challenges/">
+        <link rel="canonical" href="https://ronnyhdez.github.io/drawer/bash_scripts/">
       
       <link rel="icon" href="../images/pencil.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
     
     
       
-        <title>Code functions challenges - Drawer Where I keep my R notes (and other dev stuff)</title>
+        <title>Bash things - Drawer Where I keep my R notes (and other dev stuff)</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#change-specific-values-in-all-columns-for-nas" class="md-skip">
+        <a href="#bash-things" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Code functions challenges
+              Bash things
             
           </span>
         </div>
@@ -220,11 +220,51 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../bash_scripts/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Bash things
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Bash things
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-a-timer" class="md-nav__link">
+    Set up a timer
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -235,47 +275,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Code functions challenges
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../code_functions_challenges/" class="md-nav__link">
         Code functions challenges
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#change-specific-values-in-all-columns-for-nas" class="md-nav__link">
-    Change specific values in all columns for NA’s
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -371,6 +375,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -379,8 +385,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#change-specific-values-in-all-columns-for-nas" class="md-nav__link">
-    Change specific values in all columns for NA’s
+  <a href="#set-up-a-timer" class="md-nav__link">
+    Set up a timer
   </a>
   
 </li>
@@ -397,51 +403,24 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ronnyhdez/drawer/edit/master/docs/code_functions_challenges.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/ronnyhdez/drawer/edit/master/docs/bash_scripts.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>Code functions challenges</h1>
-                
-                <p>Quick notes about short R code and functions things that usually I don’t
-do and I tend to forget.</p>
-<h2 id="change-specific-values-in-all-columns-for-nas">Change specific values in all columns for NA’s</h2>
-<p>A data frame with <code>-9999</code> values in many columns that need to be replace
-with <code>NA</code>’s values:</p>
-<pre><code># libraries
-library(dplyr)
+                <h1 id="bash-things">Bash things</h1>
+<h2 id="set-up-a-timer">Set up a timer</h2>
+<p>I created a file call timer.sh</p>
+<p>Inside it contains this:</p>
+<pre><code>#!/bin/bash
 
-## 
-## Attaching package: 'dplyr'
-
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-
-# Test data frame
-test &lt;- tribble(~a, ~b, ~c,
-                "a", 2, -9999,
-                "b", 3, 5,
-                "c", -9999, 6,
-                "d", -9999, -9999)
-
-# Solution
-test %&gt;% 
-  mutate_all(~na_if(., -9999))
-
-## # A tibble: 4 × 3
-##   a         b     c
-##   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 a         2    NA
-## 2 b         3     5
-## 3 c        NA     6
-## 4 d        NA    NA
+date1=`date +%s`; while true; do 
+   echo -ne &quot;$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r&quot;;
 </code></pre>
+<p>Then, to run the script without thinking too much, I created an alias:</p>
+<pre><code>alias timer=&quot;bash /home/ronny/timer.sh&quot; 
+</code></pre>
+<p>So, any time I open the terminal, I can have a timer just typing <code>timer</code></p>
                 
               
               
@@ -461,7 +440,7 @@ test %&gt;%
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../bash_scripts/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Bash things" rel="prev">
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Welcome!" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -470,20 +449,20 @@ test %&gt;%
               <span class="md-footer__direction">
                 Previous
               </span>
-              Bash things
+              Welcome!
             </div>
           </div>
         </a>
       
       
         
-        <a href="../google_drive_api/" class="md-footer__link md-footer__link--next" aria-label="Next: Google drive api" rel="next">
+        <a href="../code_functions_challenges/" class="md-footer__link md-footer__link--next" aria-label="Next: Code functions challenges" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Google drive api
+              Code functions challenges
             </div>
           </div>
           <div class="md-footer__button md-icon">

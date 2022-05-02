@@ -17,3 +17,8 @@ usually take quickly while working solving things related to programming.
 
 If there is material for a blogpost, I can use the information to create and
 edit a new document in this [repo](https://github.com/ronnyhdez/blog)
+
+## References
+
+ - [Matherial theme](https://squidfunk.github.io/mkdocs-material/)
+ - Favicon by Freepick <a href="https://www.flaticon.com/free-icons/brain" title="brain icons">Brain icons created by Freepik - Flaticon</a>

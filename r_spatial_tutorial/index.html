@@ -11,14 +11,14 @@
         <meta name="author" content="Ronny A. Hernández Mora">
       
       
-        <link rel="canonical" href="https://ronnyhdez.github.io/drawer/stringr_tips/">
+        <link rel="canonical" href="https://ronnyhdez.github.io/drawer/r_spatial_tutorial/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
     
     
       
-        <title>Stringr tips - drawer</title>
+        <title>R spatial tutorial - drawer</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-extract-numbers-from-a-string" class="md-skip">
+        <a href="#downloading-example-data" class="md-skip">
           Skip to content
         </a>
       
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Stringr tips
+              R spatial tutorial
             
           </span>
         </div>
@@ -237,21 +237,6 @@
 
   
   
-  
-    <li class="md-nav__item">
-      <a href="../r_spatial_tutorial/" class="md-nav__link">
-        R spatial tutorial
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
     
   
   
@@ -262,12 +247,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Stringr tips
+          R spatial tutorial
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Stringr tips
+        R spatial tutorial
       </a>
       
         
@@ -283,15 +268,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-extract-numbers-from-a-string" class="md-nav__link">
-    How to extract numbers from a string
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extract-string-between-brackets" class="md-nav__link">
-    Extract string between brackets
+  <a href="#downloading-example-data" class="md-nav__link">
+    Downloading example data
   </a>
   
 </li>
@@ -300,6 +278,21 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stringr_tips/" class="md-nav__link">
+        Stringr tips
+      </a>
     </li>
   
 
@@ -328,15 +321,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-extract-numbers-from-a-string" class="md-nav__link">
-    How to extract numbers from a string
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extract-string-between-brackets" class="md-nav__link">
-    Extract string between brackets
+  <a href="#downloading-example-data" class="md-nav__link">
+    Downloading example data
   </a>
   
 </li>
@@ -354,72 +340,15 @@
               
                 
                 
-                  <h1>Stringr tips</h1>
+                  <h1>R spatial tutorial</h1>
                 
-                <p>How many hours have I spent looking how to solve a regex?</p>
-<p>A lot!</p>
-<p>So here I have some quick notes on things that I have solved before and
-forget about it pretty often.</p>
-<h2 id="how-to-extract-numbers-from-a-string">How to extract numbers from a string</h2>
-<p>Sometimes, I need to extract just the numbers that I can find in a
-string. To achieve this, I can use the following function:</p>
-<pre><code>library(stringr)
-
-string_with_numbers &lt;- c("01 uno", "02 dos")
-
-str_extract(string_with_numbers , "\\d+")
-
-## [1] "01" "02"
-</code></pre>
-<h2 id="extract-string-between-brackets">Extract string between brackets</h2>
-<pre><code>library(stringr)
-library(tibble)
-library(dplyr)
-library(tidyr)
-
-## The data frames with the column that I need
-check &lt;- tribble(
-  ~geo,
-  "{\"geodesic\":false,\"type\":\"Point\",\"coordinates\":[-79.94739867829001,44.3105986723403]}" , 
-  "{\"geodesic\":false,\"type\":\"Point\",\"coordinates\":[-79.94714795170373,44.310596361431216]}",
-  "{\"geodesic\":false,\"type\":\"Point\",\"coordinates\":[-79.9468972251475,44.31059404997191]}" , 
-  "{\"geodesic\":false,\"type\":\"Point\",\"coordinates\":[-79.9466464986213,44.31059173796237]}" , 
-  "{\"geodesic\":false,\"type\":\"Point\",\"coordinates\":[-79.94639577212517,44.3105894254026]}" , 
-  "{\"geodesic\":false,\"type\":\"Point\",\"coordinates\":[-79.9461450456591,44.310587112292595]}" 
-)
-
-## Solution 1 (Didn't work)
-check %&gt;% 
-  mutate(test = str_extract(geo, "\\[|\\]") ) %&gt;% 
-  select(test)
-
-## # A tibble: 6 × 1
-##   test 
-##   &lt;chr&gt;
-## 1 [    
-## 2 [    
-## 3 [    
-## 4 [    
-## 5 [    
-## 6 [
-
-# Solution 2 (This one works!)
-check %&gt;% 
-  mutate(test = str_extract(geo, "\\[(.*?)\\]") ) %&gt;% 
-  select(test) %&gt;% 
-  separate(col = "test", into = c("lat", "long"), sep = ",") %&gt;% 
-  mutate(lat = str_extract(lat, "-?[0-9.]+"),
-         long = str_extract(long, "-?[0-9.]+"))
-
-## # A tibble: 6 × 2
-##   lat                long              
-##   &lt;chr&gt;              &lt;chr&gt;             
-## 1 -79.94739867829001 44.3105986723403  
-## 2 -79.94714795170373 44.310596361431216
-## 3 -79.9468972251475  44.31059404997191 
-## 4 -79.9466464986213  44.31059173796237 
-## 5 -79.94639577212517 44.3105894254026  
-## 6 -79.9461450456591  44.310587112292595
+                <p>All the code and examples here were created using the information in
+<a href="https://rspatial.org/raster/rs/1-introduction.html">rspatial.org</a></p>
+<h2 id="downloading-example-data">Downloading example data</h2>
+<pre><code>if (!file.exists('data/rs/samples.rds')) {
+    download.file('https://biogeo.ucdavis.edu/data/rspatial/rsdata.zip', dest = 'data/rsdata.zip')
+    unzip('data/rsdata.zip', exdir = 'data')
+}
 </code></pre>
                 
               
@@ -440,7 +369,7 @@ check %&gt;%
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../r_spatial_tutorial/" class="md-footer__link md-footer__link--prev" aria-label="Previous: R spatial tutorial" rel="prev">
+        <a href="../questions_in_r/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Questions in r" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -449,11 +378,26 @@ check %&gt;%
               <span class="md-footer__direction">
                 Previous
               </span>
-              R spatial tutorial
+              Questions in r
             </div>
           </div>
         </a>
       
+      
+        
+        <a href="../stringr_tips/" class="md-footer__link md-footer__link--next" aria-label="Next: Stringr tips" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Stringr tips
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   

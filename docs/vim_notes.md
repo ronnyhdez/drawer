@@ -5,7 +5,7 @@ There are two config files: one for vim, otherone for nvim
  - vim: ~/.vimrc
  - nvim: ~/.config/nvim/init.vim
 
-I cannot find at this point a config file for vim O.o
+I cannot find at this point a config file for vim **O.o** 
 So, I will just create a `.vimrc` under my home:
 
 Now, given that I have installed in my computer vim and nvim, the way that

@@ -1,4 +1,5 @@
-# Create questions with `yesno` package
+Create questions with `yesno` package
+=====================================
 
 If we have functions that require the confirmation of the user, we can
 use the `yesno` package to create questions and the answer options:

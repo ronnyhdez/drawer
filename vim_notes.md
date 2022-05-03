@@ -115,7 +115,8 @@ Here we can use the `%` to indicate current file:
 :!git checkout %
 ```
 
-
+To be honest, its easier to open a new window with tmux and execute all
+terminal commands from there than from the vim session. It's less tipying.
 
 
 

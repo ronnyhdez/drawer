@@ -96,7 +96,24 @@ vim-plug we can check the pluggins in use with:
 :PlugStatus
 ```
 
+## Working with vim and git
 
+Is kind of bothering to exit vim in order to commit changes in the git 
+repository, so a way to do it is to use the bang `:!` to execute shell
+commands.
+
+```
+:!git status
+:!git commit -m "Ref #2 my changes done"
+:!git push
+```
+
+Here we can use the `%` to indicate current file:
+
+```
+:!git add %
+:!git checkout %
+```
 
 
 

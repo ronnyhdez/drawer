@@ -9,6 +9,13 @@ forget.
  - load docmaker package
  - To render all documents and publish in just one step: `make_all_docs(T)`
  - If there is a md file at the moment I need to copy this one to `docs/`
+ 
+**Remeber** I have two bash_aliases for building and deploying docs from
+terminal instead from package function. This is useful for when I'm 
+creating `.md` documents directly:
+
+ - mkb = mkdocs build --config-file=mkdocs.yml
+ - ghd = mkdocs gh-deploy --strict --force
 
 ## Things to remember
 

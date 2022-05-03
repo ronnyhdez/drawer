@@ -369,6 +369,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#working-with-vim-and-git" class="md-nav__link">
+    Working with vim and git
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -430,6 +437,13 @@
           <li class="md-nav__item">
   <a href="#customizing-vim-plugins" class="md-nav__link">
     Customizing vim (plugins)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-vim-and-git" class="md-nav__link">
+    Working with vim and git
   </a>
   
 </li>
@@ -525,6 +539,18 @@ call plug#end()
 <p>If I want to know the pluggins installed, and given that we are using the
 vim-plug we can check the pluggins in use with:</p>
 <pre><code>:PlugStatus
+</code></pre>
+<h2 id="working-with-vim-and-git">Working with vim and git</h2>
+<p>Is kind of bothering to exit vim in order to commit changes in the git 
+repository, so a way to do it is to use the bang <code>:!</code> to execute shell
+commands.</p>
+<pre><code>:!git status
+:!git commit -m &quot;Ref #2 my changes done&quot;
+:!git push
+</code></pre>
+<p>Here we can use the <code>%</code> to indicate current file:</p>
+<pre><code>:!git add %
+:!git checkout %
 </code></pre>
                 
               

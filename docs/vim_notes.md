@@ -96,12 +96,37 @@ vim-plug we can check the pluggins in use with:
 :PlugStatus
 ```
 
+## Working with vim and git
+
+Is kind of bothering to exit vim in order to commit changes in the git 
+repository, so a way to do it is to use the bang `:!` to execute shell
+commands.
+
+```
+:!git status
+:!git commit -m "Ref #2 my changes done"
+:!git push
+```
+
+Here we can use the `%` to indicate current file:
+
+```
+:!git add %
+:!git checkout %
+```
+
+To be honest, its easier to open a new window with tmux and execute all
+terminal commands from there than from the vim session. It's less tipying.
 
 
 
+# References
 
+Sites that can be useful:
 
-
+http://manuals.bioinformatics.ucr.edu/home/programming-in-r/vim-r
+https://hpcc.ucr.edu/manuals_linux-cluster_terminalIDE.html
+https://gist.github.com/tgirke/7a7c197b443243937f68c422e5471899
 
 
 

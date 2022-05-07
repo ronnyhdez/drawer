@@ -120,6 +120,13 @@ terminal commands from there than from the vim session. It's less tipying.
 
 
 
+# References
+
+Sites that can be useful:
+
+http://manuals.bioinformatics.ucr.edu/home/programming-in-r/vim-r
+https://hpcc.ucr.edu/manuals_linux-cluster_terminalIDE.html
+https://gist.github.com/tgirke/7a7c197b443243937f68c422e5471899
 
 
 

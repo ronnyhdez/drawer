@@ -19,3 +19,7 @@ alias timer="bash /home/ronny/timer.sh"
 ```
 
 So, any time I open the terminal, I can have a timer just typing `timer`
+
+# Encrypt file
+
+zip --encrypt dato_sobre.zip dato.txt

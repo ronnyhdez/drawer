@@ -23,3 +23,9 @@ So, any time I open the terminal, I can have a timer just typing `timer`
 # Encrypt file
 
 zip --encrypt dato_sobre.zip dato.txt
+
+# Create a hash value
+
+```
+echo 'Hello World' | shasum -a 256
+```

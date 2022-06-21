@@ -35,3 +35,19 @@ The translation to data table:
     pixels_sr[, c("file_id", "system_index", 
                   "folder_1", "folder_2",
                   "geo", "location") := NULL]
+
+## Other tips:
+
+If we have a column with more than ~40 groups, we should create a key:
+
+    setkey(pft, columna_con_muchos_grupos) 
+
+The sintaxis to summarise per groups will be:
+
+    check_mean <- pft[ , .(mean_evi = mean(evi, na.rm = TRUE)), 
+                       by = fecha]
+
+Sintaxis for creating a new column with some column formulas:
+
+    pft[ , ":="(evi = (2.5 *(b8 - b4)) /
+                  (b8 + (2.4 * b4) + 1000))] 

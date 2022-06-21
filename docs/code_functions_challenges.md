@@ -9,17 +9,6 @@ with `NA`’s values:
     # libraries
     library(dplyr)
 
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
     # Test data frame
     test <- tribble(~a, ~b, ~c,
                     "a", 2, -9999,

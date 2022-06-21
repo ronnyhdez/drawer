@@ -11,14 +11,14 @@
         <meta name="author" content="Ronny A. Hernández Mora">
       
       
-        <link rel="canonical" href="https://ronnyhdez.github.io/drawer/bash_scripts/">
+        <link rel="canonical" href="https://ronnyhdez.github.io/drawer/data_table/">
       
       <link rel="icon" href="../images/pencil.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
     
     
       
-        <title>Bash things - Drawer Where I keep my R notes (and other dev stuff)</title>
+        <title>Data table - Drawer Where I keep my R notes (and other dev stuff)</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bash-things" class="md-skip">
+        <a href="#translating-a-dplyr-pipeline-to-data-table" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bash things
+              Data table
             
           </span>
         </div>
@@ -220,51 +220,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Bash things
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../bash_scripts/" class="md-nav__link">
         Bash things
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#set-up-a-timer" class="md-nav__link">
-    Set up a timer
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -290,11 +250,47 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../data_table/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Data table
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Data table
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#translating-a-dplyr-pipeline-to-data-table" class="md-nav__link">
+    Translating a dplyr pipeline to data table
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -405,8 +401,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -415,8 +409,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#set-up-a-timer" class="md-nav__link">
-    Set up a timer
+  <a href="#translating-a-dplyr-pipeline-to-data-table" class="md-nav__link">
+    Translating a dplyr pipeline to data table
   </a>
   
 </li>
@@ -433,24 +427,46 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ronnyhdez/drawer/edit/master/docs/bash_scripts.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/ronnyhdez/drawer/edit/master/docs/data_table.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="bash-things">Bash things</h1>
-<h2 id="set-up-a-timer">Set up a timer</h2>
-<p>I created a file call timer.sh</p>
-<p>Inside it contains this:</p>
-<pre><code>#!/bin/bash
-
-date1=`date +%s`; while true; do 
-   echo -ne &quot;$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r&quot;;
+                  <h1>Data table</h1>
+                
+                <h2 id="translating-a-dplyr-pipeline-to-data-table">Translating a dplyr pipeline to data table</h2>
+<p>The problem was that a project had local csv files with many rows. When
+cleaning the data using dplyr this would consume a lot of the memory and
+take a lot of time to produce a result.</p>
+<p>So, an option was to implement the package <code>data.table</code> to be able to
+handle all this data in a local computer.</p>
+<p>This was the original data pipeline:</p>
+<pre><code>pixels_clean &lt;- pixels %&gt;% 
+  separate(file_id, into = c("folder", "file_id"), sep = "/") %&gt;% 
+  mutate(file_id = str_remove(file_id, ".csv")) %&gt;% 
+  mutate(location = str_extract(geo, "\\[(.*?)\\]") ) %&gt;% 
+  separate(col = "location", into = c("lat", "long"), sep = ",") %&gt;% 
+  mutate(lat = str_extract(lat, "-?[0-9.]+"),
+         long = str_extract(long, "-?[0-9.]+")) %&gt;% 
+  select(-folder, -geo) %&gt;% 
+  separate(file_id, into = c("first", "second", "tnk"), remove = FALSE) %&gt;% 
+  select(-second, -tnk) %&gt;% 
+  separate(first, into = c("date", "time"), sep = "T") %&gt;% 
+  mutate(date = ymd(date))
 </code></pre>
-<p>Then, to run the script without thinking too much, I created an alias:</p>
-<pre><code>alias timer=&quot;bash /home/ronny/timer.sh&quot; 
+<p>The translation to data table:</p>
+<pre><code>setDT(pixels_sr)
+pixels_sr[, c("folder_1", "folder_2", "file_id") := tstrsplit(file_id, "/", fixed = TRUE)]
+pixels_sr[ , ":="(file_id = str_remove(file_id, ".csv"))]
+pixels_sr[ , ":="(location = str_extract(geo, "\\[(.*?)\\]"))]
+pixels_sr[,  c("lat", "long") := tstrsplit(location, ",", fixed = TRUE)]
+pixels_sr[ , ":="(lat = str_extract(lat, "-?[0-9.]+"),
+                  long = str_extract(long, "-?[0-9.]+"))]
+pixels_sr[, ":="(date = ymd(file_id))]
+pixels_sr[, c("file_id", "system_index", 
+              "folder_1", "folder_2",
+              "geo", "location") := NULL]
 </code></pre>
-<p>So, any time I open the terminal, I can have a timer just typing <code>timer</code></p>
                 
               
               
@@ -470,7 +486,7 @@ date1=`date +%s`; while true; do
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Welcome!" rel="prev">
+        <a href="../code_functions_challenges/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Code functions challenges" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -479,20 +495,20 @@ date1=`date +%s`; while true; do
               <span class="md-footer__direction">
                 Previous
               </span>
-              Welcome!
+              Code functions challenges
             </div>
           </div>
         </a>
       
       
         
-        <a href="../code_functions_challenges/" class="md-footer__link md-footer__link--next" aria-label="Next: Code functions challenges" rel="next">
+        <a href="../google_drive_api/" class="md-footer__link md-footer__link--next" aria-label="Next: Google drive api" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Code functions challenges
+              Google drive api
             </div>
           </div>
           <div class="md-footer__button md-icon">

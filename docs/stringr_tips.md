@@ -5,8 +5,7 @@ A lot!
 So here I have some quick notes on things that I have solved before and
 forget about it pretty often.
 
-How to extract numbers from a string
-------------------------------------
+## How to extract numbers from a string
 
 Sometimes, I need to extract just the numbers that I can find in a
 string. To achieve this, I can use the following function:
@@ -19,8 +18,7 @@ string. To achieve this, I can use the following function:
 
     ## [1] "01" "02"
 
-Extract string between brackets
--------------------------------
+## Extract string between brackets
 
     library(stringr)
     library(tibble)

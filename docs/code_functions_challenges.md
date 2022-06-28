@@ -1,25 +1,13 @@
 Quick notes about short R code and functions things that usually I don’t
 do and I tend to forget.
 
-Change specific values in all columns for NA’s
-----------------------------------------------
+## Change specific values in all columns for NA’s
 
 A data frame with `-9999` values in many columns that need to be replace
 with `NA`’s values:
 
     # libraries
     library(dplyr)
-
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
 
     # Test data frame
     test <- tribble(~a, ~b, ~c,

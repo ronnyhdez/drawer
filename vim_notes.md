@@ -118,12 +118,47 @@ Here we can use the `%` to indicate current file:
 To be honest, its easier to open a new window with tmux and execute all
 terminal commands from there than from the vim session. It's less tipying.
 
+## Workflow
+
+When changing the `.vimrc` file
+
+## Errors
+
+Section with some of the errors that I have faced and followed steps to
+solve them.
+
+### .coc nodejs not executable
+
+When opening a vim session, always this message will pop-up:
+
+`"node" is not executable, checkout https://nodejs.org/en/download/`
+
+To install nodejs and avoid this problem, I did:
+
+```
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+### <localleader>rf not starting R session 
+
+Given that the <localleader>rf is not working when opening a R file, one of
+the solutions is to indicate the R path in the `.vimrc` file, so I included it
+
+```
+let R_path = '~/R/x86_64-pc-linux-gnu-library/4.2'
+```
+
+Nonetheless, it's still not working.
+
+
 
 
 # References
 
 Sites that can be useful:
 
+https://github.com/nodesource/distributions/blob/master/README.md#debinstall
 http://manuals.bioinformatics.ucr.edu/home/programming-in-r/vim-r
 https://hpcc.ucr.edu/manuals_linux-cluster_terminalIDE.html
 https://gist.github.com/tgirke/7a7c197b443243937f68c422e5471899

@@ -9,9 +9,64 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+# Exporting a COG (Cloud Optimized Geotiff) file from GEE
+
+The idea is to document steps to export from Google Earth Engine a COG file
+(or several) to Google Drive to be imported latter in R for analysis. 
+
+## GEE first example
+
+As a first approach, I followed a tutorial from the [Google documentation:](https://developers.google.com/earth-engine/guides/exporting)
+
+```{js, eval = FALSE}
+// Load a landsat image and select three bands.
+var landsat = ee.Image('LANDSAT/LC08/C01/T1_TOA/LC08_123032_20140515')
+  .select(['B4', 'B3', 'B2']);
+
+// Create a geometry representing an export region.
+var geometry = ee.Geometry.Rectangle([116.2621, 39.8412, 116.4849, 40.01236]);
+
+// Retrieve the projection information from a band of the original image.
+// Call getInfo() on the projection to request a client-side object containing
+// the crs and transform information needed for the client-side Export function.
+var projection = landsat.select('B2').projection().getInfo();
+
+// Export a cloud-optimized GeoTIFF.
+Export.image.toDrive({
+  image: landsat,
+  description: 'imageToCOGeoTiffExample',
+  crs: projection.crs,
+  crsTransform: projection.transform,
+  region: geometry,
+  folder: "GEE_testing",
+  fileFormat: 'GeoTIFF',
+  formatOptions: {
+    cloudOptimized: true
+  }
+});
+```
+
+Then, this file was imported to R with help of the `terra` package:
+
+```{r}
+library(terra)
+
+check <- rast("data/imageToCOGeoTiffExample.tif")
+```
+
+And, to validate, I plotted the file using a base R function:
+
+```{r}
+plot(check)
+```
+
+
+
+# A failed attempt with raster package
+
 All the code and examples here were created using the information in 
 [rspatial.org](https://rspatial.org/raster/rs/1-introduction.html)
-
 
 ## Downloading example data
 
@@ -21,4 +76,3 @@ if (!file.exists('data/rs/samples.rds')) {
     unzip('data/rsdata.zip', exdir = 'data')
 }
 ```
-

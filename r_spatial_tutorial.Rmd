@@ -70,6 +70,7 @@ plotRGB(check, axes = TRUE, stretch = "lin", main = "Landsat True Color Composit
  - https://geocompr.robinlovelace.net/read-write.html#raster-data-read
  - https://rspatial.org/raster/rs/2-exploration.html
  - https://developers.google.com/earth-engine/guides/exporting
+ 
 
 # `terra` package tutorial
 
@@ -95,7 +96,7 @@ if (!file.exists("data/rs/samples.rds")) {
 The documentation states that we should work with the `luna` package, but it's
 not on CRAN, so I downloaded directly from the [GitHub](https://github.com/rspatial/luna)
 
-```{r}
+```{r, eval = FALSE}
 # remotes::install_github("rspatial/luna")
 library(terra)
 library(luna)
@@ -149,14 +150,32 @@ mf <- luna::getModis(product = "MOD09GA",
                      password = passwd)
 mf
 
-# https://rspatial.org/terra/modis/4-quality.html
+# At this point, we should have the data in the path indicated
+
+# Explore the downloaded data:
+library(fs)
+library(terra)
+file <- file.path(here::here(), "data/MOD09GA.A2015006.h09v07.006.2015295062629.hdf")
+r <- rast(file)
+
+
+datadir <- file.path(dirname(tempdir()), "_modis")
+mf <- file.path(datadir, "MOD09A1.A2009361.h21v08.006.2015198070255.hdf")
+library(terra)
+r <- rast(mf[1])
+r
+```
+
+
+```{r}
+
 ```
 
 
 
 
 
-
+- # https://rspatial.org/terra/modis/4-quality.html
 
 
 

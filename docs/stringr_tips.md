@@ -25,6 +25,13 @@ string. To achieve this, I can use the following function:
     library(dplyr)
     library(tidyr)
 
+    ## 
+    ## Attaching package: 'tidyr'
+
+    ## The following object is masked from 'package:terra':
+    ## 
+    ##     extract
+
     ## The data frames with the column that I need
     check <- tribble(
       ~geo,

@@ -18,7 +18,7 @@
     
     
       
-        <title>Bash things - Drawer Where I keep my R notes (and other dev stuff)</title>
+        <title>Bash Terminal topics - Drawer Where I keep my R notes (and other dev stuff)</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bash-things" class="md-skip">
+        <a href="#bash-terminal-topics" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bash things
+              Bash Terminal topics
             
           </span>
         </div>
@@ -232,12 +232,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Bash things
+          Bash Terminal topics
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Bash things
+        Bash Terminal topics
       </a>
       
         
@@ -257,6 +257,13 @@
         <li class="md-nav__item">
   <a href="#set-up-a-timer" class="md-nav__link">
     Set up a timer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-python-conda-environment" class="md-nav__link">
+    Set up python conda environment
   </a>
   
 </li>
@@ -421,6 +428,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#set-up-python-conda-environment" class="md-nav__link">
+    Set up python conda environment
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -438,8 +452,10 @@
                   </a>
                 
                 
-                <h1 id="bash-things">Bash things</h1>
-<h2 id="set-up-a-timer">Set up a timer</h2>
+                <h1 id="bash-terminal-topics">Bash Terminal topics</h1>
+<p>Probably a bit messy given that I use this space to export notes when solving
+things.</p>
+<h2 id="set-up-a-timer"><strong>Set up a timer</strong></h2>
 <p>I created a file call timer.sh</p>
 <p>Inside it contains this:</p>
 <pre><code>#!/bin/bash
@@ -451,6 +467,36 @@ date1=`date +%s`; while true; do
 <pre><code>alias timer=&quot;bash /home/ronny/timer.sh&quot; 
 </code></pre>
 <p>So, any time I open the terminal, I can have a timer just typing <code>timer</code></p>
+<h2 id="set-up-python-conda-environment"><strong>Set up python conda environment</strong></h2>
+<ul>
+<li>Check if there are already envs:</li>
+</ul>
+<pre><code>conda info --envs
+
+# conda environments:
+#
+base                  *  /home/ronny/anaconda3
+gee                      /home/ronny/anaconda3/envs/gee
+gpp                      /home/ronny/anaconda3/envs/gpp
+satellite                /home/ronny/anaconda3/envs/satellite
+</code></pre>
+<ul>
+<li>To activate/deactivate:</li>
+</ul>
+<pre><code>conda activate
+conda deactivate
+</code></pre>
+<ul>
+<li>There is a difference between:</li>
+</ul>
+<pre><code>apt install spyder
+conda install spyder
+</code></pre>
+<ul>
+<li>To create a new env:</li>
+</ul>
+<pre><code>conda create --name gee python = 3.5
+</code></pre>
                 
               
               

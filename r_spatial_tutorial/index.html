@@ -18,7 +18,7 @@
     
     
       
-        <title>Exporting a COG (Cloud Optimized Geotiff) file from GEE - Drawer Where I keep my R notes (and other dev stuff)</title>
+        <title>R spatial notes - Drawer Where I keep my R notes (and other dev stuff)</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#exporting-a-cog-cloud-optimized-geotiff-file-from-gee" class="md-skip">
+        <a href="#r-spatial-notes" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exporting a COG (Cloud Optimized Geotiff) file from GEE
+              R spatial notes
             
           </span>
         </div>
@@ -322,12 +322,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Exporting a COG (Cloud Optimized Geotiff) file from GEE
+          R spatial notes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Exporting a COG (Cloud Optimized Geotiff) file from GEE
+        R spatial notes
       </a>
       
         
@@ -345,15 +345,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gee-first-example" class="md-nav__link">
-    GEE first example
+  <a href="#exporting-a-cog-cloud-optimized-geotiff-file-from-gee" class="md-nav__link">
+    Exporting a COG (Cloud Optimized Geotiff) file from GEE
+  </a>
+  
+    <nav class="md-nav" aria-label="Exporting a COG (Cloud Optimized Geotiff) file from GEE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-gdal-in-ubuntu" class="md-nav__link">
+    Updating GDAL in Ubuntu
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#terra-package-tutorial" class="md-nav__link">
+    terra package tutorial
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloading-example-data" class="md-nav__link">
+    Downloading example data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-modis-data" class="md-nav__link">
+    Working with MODIS data
   </a>
   
 </li>
@@ -422,15 +456,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gee-first-example" class="md-nav__link">
-    GEE first example
+  <a href="#exporting-a-cog-cloud-optimized-geotiff-file-from-gee" class="md-nav__link">
+    Exporting a COG (Cloud Optimized Geotiff) file from GEE
+  </a>
+  
+    <nav class="md-nav" aria-label="Exporting a COG (Cloud Optimized Geotiff) file from GEE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-gdal-in-ubuntu" class="md-nav__link">
+    Updating GDAL in Ubuntu
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#terra-package-tutorial" class="md-nav__link">
+    terra package tutorial
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloading-example-data" class="md-nav__link">
+    Downloading example data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-modis-data" class="md-nav__link">
+    Working with MODIS data
   </a>
   
 </li>
@@ -452,13 +520,16 @@
                   </a>
                 
                 
-                <h1 id="exporting-a-cog-cloud-optimized-geotiff-file-from-gee">Exporting a COG (Cloud Optimized Geotiff) file from GEE</h1>
+                <h1 id="r-spatial-notes">R spatial notes</h1>
+<p>All notes related to experiments to deal and learn about using spatial
+data with R.</p>
+<h2 id="exporting-a-cog-cloud-optimized-geotiff-file-from-gee">Exporting a COG (Cloud Optimized Geotiff) file from GEE</h2>
 <p>The idea is to document steps to export from Google Earth Engine a COG
 file (or several) to Google Drive to be imported latter in R for
 analysis.</p>
-<h2 id="gee-first-example">GEE first example</h2>
 <p>As a first approach, I followed a tutorial from the <a href="https://developers.google.com/earth-engine/guides/exporting">Google
-documentation:</a></p>
+documentation:</a>.</p>
+<p>The code below is a copy/paste from the GEE IDE:</p>
 <pre><code>// Load a landsat image and select three bands.
 var landsat = ee.Image('LANDSAT/LC08/C01/T1_TOA/LC08_123032_20140515')
   .select(['B4', 'B3', 'B2']);
@@ -485,24 +556,54 @@ Export.image.toDrive({
   }
 });
 </code></pre>
-<p>Then, this file was imported to R with help of the <code>terra</code> package:</p>
+<p>After the COG file was exported to my Google Drive, I downloaded to my
+data folder. Then, this file was imported to my R session with the help
+of the <code>terra</code> package:</p>
 <pre><code>library(terra)
 
 check &lt;- rast("data/imageToCOGeoTiffExample.tif")
 </code></pre>
-<p>And, to validate, I plotted the file using a base R function:</p>
+<p>And, to validate it, I plotted the file using the <code>terra</code> function:</p>
 <pre><code>plot(check)
 
 plotRGB(check, axes = TRUE, stretch = "lin", main = "Landsat True Color Composite")
 </code></pre>
-<h2 id="references">References</h2>
+<h3 id="references">References</h3>
 <ul>
 <li><a href="https://rspatial.org/terra/pkg/1-introduction.html">https://rspatial.org/terra/pkg/1-introduction.html</a></li>
 <li><a href="https://geocompr.robinlovelace.net/read-write.html#raster-data-read">https://geocompr.robinlovelace.net/read-write.html#raster-data-read</a></li>
 <li><a href="https://rspatial.org/raster/rs/2-exploration.html">https://rspatial.org/raster/rs/2-exploration.html</a></li>
 <li><a href="https://developers.google.com/earth-engine/guides/exporting">https://developers.google.com/earth-engine/guides/exporting</a></li>
 </ul>
-<h1 id="terra-package-tutorial"><code>terra</code> package tutorial</h1>
+<h2 id="updating-gdal-in-ubuntu">Updating GDAL in Ubuntu</h2>
+<p>For using the <code>terra</code> package or other spatial packages in R, it’s
+necessary to install in your system <a href="https://gdal.org/index.html">GDAL</a>.
+There are several steps to follow to do this.</p>
+<p>In my case, I had already GDAL on my system but it was outdated.</p>
+<pre><code>$ gdalinfo --version
+GDAL 3.0.4, released 2020/01/28
+</code></pre>
+<p>So, I removed first the system packages:</p>
+<pre><code>sudo apt remove libgdal-dev
+sudo apt remove libproj-dev
+sudo apt remove gdal-bin
+</code></pre>
+<p>Then I proceed to add the <a href="https://launchpad.net/~ubuntugis/+archive/ubuntu/ppa">PPA
+ubuntugis</a></p>
+<pre><code>sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+</code></pre>
+<p>Finally, I installed the necessary packages:</p>
+<pre><code>sudo apt-get install gdal-bin
+sudo apt-get install libgdal-dev libgeos-dev libproj-dev 
+sudo apt update
+sudo apt upgrade
+sudo apt autoremove
+</code></pre>
+<p>And now, my GDAL version is:</p>
+<pre><code>$ gdalinfo --version
+GDAL 3.3.2, released 2021/09/01
+</code></pre>
+<h2 id="terra-package-tutorial"><code>terra</code> package tutorial</h2>
 <p>All the code and examples here were created using the information in
 <a href="https://rspatial.org/terra/rs/1-introduction.html">rspatial.org</a></p>
 <h2 id="downloading-example-data">Downloading example data</h2>

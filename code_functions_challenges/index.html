@@ -349,7 +349,7 @@
   
     <li class="md-nav__item">
       <a href="../r_spatial_tutorial/" class="md-nav__link">
-        Exporting a COG (Cloud Optimized Geotiff) file from GEE
+        R spatial notes
       </a>
     </li>
   
@@ -441,6 +441,21 @@ do and I tend to forget.</p>
 with <code>NA</code>’s values:</p>
 <pre><code># libraries
 library(dplyr)
+
+## 
+## Attaching package: 'dplyr'
+
+## The following objects are masked from 'package:terra':
+## 
+##     intersect, union
+
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
 
 # Test data frame
 test &lt;- tribble(~a, ~b, ~c,

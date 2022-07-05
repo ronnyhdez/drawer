@@ -9,15 +9,19 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# R spatial notes
 
-# Exporting a COG (Cloud Optimized Geotiff) file from GEE
+All notes related to experiments to deal and learn about using spatial data
+with R.
+
+## Exporting a COG (Cloud Optimized Geotiff) file from GEE
 
 The idea is to document steps to export from Google Earth Engine a COG file
 (or several) to Google Drive to be imported latter in R for analysis. 
 
-## GEE first example
+As a first approach, I followed a tutorial from the [Google documentation:](https://developers.google.com/earth-engine/guides/exporting).
 
-As a first approach, I followed a tutorial from the [Google documentation:](https://developers.google.com/earth-engine/guides/exporting)
+The code below is a copy/paste from the GEE IDE:
 
 ```{js, eval = FALSE}
 // Load a landsat image and select three bands.
@@ -47,24 +51,25 @@ Export.image.toDrive({
 });
 ```
 
-Then, this file was imported to R with help of the `terra` package:
+After the COG file was exported to my Google Drive, I downloaded to my data
+folder. Then, this file was imported to my R session with the help of the `terra`
+package:
 
-```{r}
+```{r, eval = FALSE}
 library(terra)
 
 check <- rast("data/imageToCOGeoTiffExample.tif")
 ```
 
-And, to validate, I plotted the file using a base R function:
+And, to validate it, I plotted the file using the `terra` function:
 
-```{r}
+```{r, eval = FALSE}
 plot(check)
 
 plotRGB(check, axes = TRUE, stretch = "lin", main = "Landsat True Color Composite")
 ```
 
-
-## References
+### References
 
  - https://rspatial.org/terra/pkg/1-introduction.html
  - https://geocompr.robinlovelace.net/read-write.html#raster-data-read
@@ -72,7 +77,52 @@ plotRGB(check, axes = TRUE, stretch = "lin", main = "Landsat True Color Composit
  - https://developers.google.com/earth-engine/guides/exporting
  
 
-# `terra` package tutorial
+## Updating GDAL in Ubuntu
+
+For using the `terra` package or other spatial packages in R, it's necessary
+to install in your system [GDAL](https://gdal.org/index.html). There are
+several steps to follow to do this.
+
+In my case, I had already GDAL on my system but it was outdated.
+
+```{bash, eval = FALSE}
+$ gdalinfo --version
+GDAL 3.0.4, released 2020/01/28
+```
+
+So, I removed first the system packages:
+
+```{bash, eval = FALSE}
+sudo apt remove libgdal-dev
+sudo apt remove libproj-dev
+sudo apt remove gdal-bin
+```
+
+Then I proceed to add the [PPA ubuntugis](https://launchpad.net/~ubuntugis/+archive/ubuntu/ppa)
+
+```{bash, eval = FALSE}
+sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+```
+
+Finally, I installed the necessary packages:
+
+```{bash, eval = FALSE}
+sudo apt-get install gdal-bin
+sudo apt-get install libgdal-dev libgeos-dev libproj-dev 
+sudo apt update
+sudo apt upgrade
+sudo apt autoremove
+```
+
+And now, my GDAL version is:
+
+```{bash, eval = FALSE}
+$ gdalinfo --version
+GDAL 3.3.2, released 2021/09/01
+```
+
+
+## `terra` package tutorial
 
 All the code and examples here were created using the information in 
 [rspatial.org](https://rspatial.org/terra/rs/1-introduction.html)
@@ -166,14 +216,42 @@ r <- rast(mf[1])
 r
 ```
 
+I have the problem that I cannot read the downloaded files
 
-```{r}
+```{r, eval = FALSE}
+# with same steps as tutorial
+product <- "MOD09A1"
+start <- "2010-01-01"
+end <- "2010-01-07"
 
+
+ken <- geodata::gadm("Kenya", level=1, path=".")
+ken
+
+i <- ken$NAME_1 == "Marsabit"
+aoi <- ken[i,]
+
+plot(ken, col="light gray")
+lines(aoi, col="red", lwd=2)
+
+mf <- luna::getModis(product, start, end, aoi=aoi, download = FALSE)
+mf
+
+datadir <- file.path(dirname(tempdir()), "_modis")
+dir.create(datadir, showWarnings=FALSE)
+
+mf <- luna::getModis(product, start, end, aoi=aoi, download=TRUE,
+                     path=datadir, username = username,
+                     password = passwd)
+mf
+
+
+datadir <- file.path(dirname(tempdir()), "_modis")
+mf <- file.path(datadir, "MOD09A1.A2009361.h21v08.006.2015198070255.hdf")
+library(terra)
+r <- terra::rast(mf[1])
+r
 ```
-
-
-
-
 
 - # https://rspatial.org/terra/modis/4-quality.html
 

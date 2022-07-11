@@ -406,6 +406,60 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    Workflow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errors" class="md-nav__link">
+    Errors
+  </a>
+  
+    <nav class="md-nav" aria-label="Errors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coc-nodejs-not-executable" class="md-nav__link">
+    .coc nodejs not executable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-not-starting-r-session" class="md-nav__link">
+    rf not starting R session
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-start" class="md-nav__link">
+    New start
+  </a>
+  
+    <nav class="md-nav" aria-label="New start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vim-workflow-for-r-projects" class="md-nav__link">
+    vim workflow for R projects
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -482,6 +536,60 @@
   <a href="#working-with-vim-and-git" class="md-nav__link">
     Working with vim and git
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    Workflow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errors" class="md-nav__link">
+    Errors
+  </a>
+  
+    <nav class="md-nav" aria-label="Errors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coc-nodejs-not-executable" class="md-nav__link">
+    .coc nodejs not executable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-not-starting-r-session" class="md-nav__link">
+    rf not starting R session
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-start" class="md-nav__link">
+    New start
+  </a>
+  
+    <nav class="md-nav" aria-label="New start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vim-workflow-for-r-projects" class="md-nav__link">
+    vim workflow for R projects
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -598,9 +706,130 @@ commands.</p>
 </code></pre>
 <p>To be honest, its easier to open a new window with tmux and execute all
 terminal commands from there than from the vim session. It's less tipying.</p>
+<h2 id="workflow">Workflow</h2>
+<p>When changing the <code>.vimrc</code> file</p>
+<h2 id="errors">Errors</h2>
+<p>Section with some of the errors that I have faced and followed steps to
+solve them.</p>
+<h3 id="coc-nodejs-not-executable">.coc nodejs not executable</h3>
+<p>When opening a vim session, always this message will pop-up:</p>
+<p><code>"node" is not executable, checkout https://nodejs.org/en/download/</code></p>
+<p>To install nodejs and avoid this problem, I did:</p>
+<pre><code>curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
+</code></pre>
+<h3 id="rf-not-starting-r-session"><localleader>rf not starting R session</h3>
+<p>Given that the <localleader>rf is not working when opening a R file, one of
+the solutions is to indicate the R path in the <code>.vimrc</code> file, so I included it</p>
+<pre><code>let R_path = '~/R/x86_64-pc-linux-gnu-library/4.2'
+</code></pre>
+<p>Nonetheless, it's still not working.</p>
+<h2 id="new-start"><strong>New start</strong></h2>
+<p>So, given that my configuration wasn't working who knows why, I just commented
+all the <code>.vimrc</code> file and start over again checking what worked and what no.</p>
+<p>After commenting my <code>.vimrc</code>, I reloaded it. I opened a <code>vim_test.R</code> file, hit
+<code>\rf</code> and it worked!</p>
+<p>Now that it worked, I went through the <code>.vimrc</code> and start uncommenting some
+of the things that I thought would not affect again nvim-r. The final file looks
+like this one:</p>
+<pre><code>&quot; No compatibility with vi to avoid problems
+&quot;set nocompatible
+
+
+&quot; Source vimrc file if specific project have one
+&quot;set exrc
+
+&quot; Cursor as a block
+set guicursor=
+
+&quot; Use relative numbers in files
+set relativenumber
+
+&quot; Line where I'm positioned is the real line number
+set nu
+
+&quot; Avoid leaving highligth after a search is done
+&quot;set nohlsearch
+
+&quot; No saving or keeping buffer in the background
+set hidden
+
+&quot; Indentetation configuration
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+
+&quot; Start scrolling until 8 spaces away
+set scrolloff=8
+
+&quot; Create extra column
+set signcolumn=yes
+
+&quot; Mark 80 characters line
+set colorcolumn=80
+
+&quot; Enable type file detection
+&quot;filetype on
+
+&quot; Enable plugins and load plugins for the detected filetype
+&quot;filetype plugin on
+
+&quot; Load an indent file for the detected file type
+&quot;filetype indent on
+
+&quot; Set the leader key
+&quot;let mapleader=&quot; &quot;
+
+&quot; Set encoding
+&quot;set encoding=utf-8
+
+&quot; Plugins
+&quot; gruvbox to change color schema
+&quot; powerline to obtain bar in bottom with git/project status
+call plug#begin()
+&quot;Plug 'gruvbox-community/gruvbox'
+Plug 'jalvesaq/Nvim-R'
+Plug 'preservim/nerdtree'
+call plug#end()
+
+&quot; NERDTree configuration test
+nnoremap &lt;C-n&gt; :NERDTree&lt;CR&gt;
+
+&quot; Set the R path for plugin nvim-r
+&quot;let R_path = '~/R/x86_64-pc-linux-gnu-library/4.2'
+</code></pre>
+<h3 id="vim-workflow-for-r-projects"><strong>vim workflow for R projects</strong></h3>
+<p>Ok, I don't want to spend more time on this configuration thing. So I started
+using vim to work on my R project just to feel the main pains when switching
+from RStudio. Along the way, if there is too much pain because of lack of some
+sort of functionality that I was too attached to it, I will change the <code>.vimrc</code>
+file to try to relieve some pain.</p>
+<p><code>\rf</code> Connect to R Console
+<code>\rq</code> Quit R Console
+<code>\d</code>  Run current line and move to the next line
+<code>\l</code> Run current line, but cursor will stay on the same line.
+<code>\pp</code> Run paragraph. But cursor will stay on the same block. 
+<code>\ss</code> Execute a block of <strong>selected code</strong>. This has to be done with visual mode
+<code>\aa</code> Run entire script
+<code>\ro</code> Open the "Global Environment"
+<code>ctrl + w + l</code> Jump to left panel
+<code>ctrl + w + h</code> Jump to right panel</p>
+<p>If I made a change on the <code>~/.vimrc</code> file, I can source it with <code>:source ~/.vimcr</code></p>
+<p>If I have installed the pluggin <code>NERDTree</code>, I need to remap some keys. At the 
+moment I have in my <code>~/.vimrc</code> file the line: <code>nnoremap &lt;C-n&gt; :NERDTree&lt;CR&gt;</code>,
+so I don't have to do <code>:NERDTree</code> to open the file browser. Now this can be done
+with:</p>
+<p><code>ctrl + n</code> Open file browser on left side by default.</p>
+<p>Inside the file tree browser, I can move with the arrows. To expand one folder
+and show contents, I can hit <code>ENTER</code>. Doing the same in an open folder, will
+close it.</p>
+<p>To move out from the NERDTree browser I can <code>ctrl + w + w</code> so I will be 
+jumping panels from left to right.</p>
 <h1 id="references">References</h1>
 <p>Sites that can be useful:</p>
-<p>http://manuals.bioinformatics.ucr.edu/home/programming-in-r/vim-r
+<p>https://github.com/nodesource/distributions/blob/master/README.md#debinstall
+http://manuals.bioinformatics.ucr.edu/home/programming-in-r/vim-r
 https://hpcc.ucr.edu/manuals_linux-cluster_terminalIDE.html
 https://gist.github.com/tgirke/7a7c197b443243937f68c422e5471899</p>
                 

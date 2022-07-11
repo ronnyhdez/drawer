@@ -152,6 +152,133 @@ let R_path = '~/R/x86_64-pc-linux-gnu-library/4.2'
 Nonetheless, it's still not working.
 
 
+## **New start**
+
+So, given that my configuration wasn't working who knows why, I just commented
+all the `.vimrc` file and start over again checking what worked and what no.
+
+
+After commenting my `.vimrc`, I reloaded it. I opened a `vim_test.R` file, hit
+`\rf` and it worked!
+
+Now that it worked, I went through the `.vimrc` and start uncommenting some
+of the things that I thought would not affect again nvim-r. The final file looks
+like this one:
+
+```
+" No compatibility with vi to avoid problems
+"set nocompatible
+
+
+" Source vimrc file if specific project have one
+"set exrc
+
+" Cursor as a block
+set guicursor=
+
+" Use relative numbers in files
+set relativenumber
+
+" Line where I'm positioned is the real line number
+set nu
+
+" Avoid leaving highligth after a search is done
+"set nohlsearch
+
+" No saving or keeping buffer in the background
+set hidden
+
+" Indentetation configuration
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+
+" Start scrolling until 8 spaces away
+set scrolloff=8
+
+" Create extra column
+set signcolumn=yes
+
+" Mark 80 characters line
+set colorcolumn=80
+
+" Enable type file detection
+"filetype on
+
+" Enable plugins and load plugins for the detected filetype
+"filetype plugin on
+
+" Load an indent file for the detected file type
+"filetype indent on
+
+" Set the leader key
+"let mapleader=" "
+
+" Set encoding
+"set encoding=utf-8
+
+" Plugins
+" gruvbox to change color schema
+" powerline to obtain bar in bottom with git/project status
+call plug#begin()
+"Plug 'gruvbox-community/gruvbox'
+Plug 'jalvesaq/Nvim-R'
+Plug 'preservim/nerdtree'
+call plug#end()
+
+" NERDTree configuration test
+nnoremap <C-n> :NERDTree<CR>
+
+" Set the R path for plugin nvim-r
+"let R_path = '~/R/x86_64-pc-linux-gnu-library/4.2'
+```
+
+### **vim workflow for R projects**
+
+Ok, I don't want to spend more time on this configuration thing. So I started
+using vim to work on my R project just to feel the main pains when switching
+from RStudio. Along the way, if there is too much pain because of lack of some
+sort of functionality that I was too attached to it, I will change the `.vimrc`
+file to try to relieve some pain.
+
+`\rf` Connect to R Console
+
+`\rq` Quit R Console
+
+`\d`  Run current line and move to the next line
+
+`\l` Run current line, but cursor will stay on the same line.
+
+`\pp` Run paragraph. But cursor will stay on the same block. 
+
+`\ss` Execute a block of **selected code**. This has to be done with visual mode
+
+`\aa` Run entire script
+
+`\ro` Open the "Global Environment"
+
+`ctrl + w + l` Jump to left panel
+
+`ctrl + w + h` Jump to right panel
+
+If I made a change on the `~/.vimrc` file, I can source it with `:source ~/.vimcr`
+
+If I have installed the pluggin `NERDTree`, I need to remap some keys. At the 
+moment I have in my `~/.vimrc` file the line: `nnoremap <C-n> :NERDTree<CR>`,
+so I don't have to do `:NERDTree` to open the file browser. Now this can be done
+with:
+
+`ctrl + n` Open file browser on left side by default.
+
+Inside the file tree browser, I can move with the arrows. To expand one folder
+and show contents, I can hit `ENTER`. Doing the same in an open folder, will
+close it.
+
+To move out from the NERDTree browser I can `ctrl + w + w` so I will be 
+jumping panels from left to right.
+
+
 
 
 # References

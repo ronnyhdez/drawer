@@ -789,8 +789,10 @@ set colorcolumn=80
 &quot; powerline to obtain bar in bottom with git/project status
 call plug#begin()
 &quot;Plug 'gruvbox-community/gruvbox'
-Plug 'jalvesaq/Nvim-R'
-Plug 'preservim/nerdtree'
+Plug 'jalvesaq/Nvim-R'     &quot; To work with vim and R
+Plug 'preservim/nerdtree'  &quot; View the files
+Plug 'ncm2/ncm2'           &quot; Auto-complete R commands
+Plug 'gaalcaras/ncm-R'     &quot; Auto complete R commands
 call plug#end()
 
 &quot; NERDTree configuration test
@@ -810,6 +812,7 @@ file to try to relieve some pain.</p>
 <p><code>\d</code>  Run current line and move to the next line</p>
 <p><code>\l</code> Run current line, but cursor will stay on the same line.</p>
 <p><code>\pp</code> Run paragraph. But cursor will stay on the same block. </p>
+<p><code>\pd</code> Runs block and move to the next one</p>
 <p><code>\ss</code> Execute a block of <strong>selected code</strong>. This has to be done with visual mode</p>
 <p><code>\aa</code> Run entire script</p>
 <p><code>\ro</code> Open the "Global Environment"</p>
@@ -827,6 +830,12 @@ close it.</p>
 <p>To move out from the NERDTree browser I can <code>ctrl + w + w</code> so I will be 
 jumping panels from left to right.</p>
 <h1 id="references">References</h1>
+<p>Plugin repos</p>
+<ul>
+<li>https://github.com/gaalcaras/ncm-R</li>
+<li>https://github.com/preservim/nerdtree</li>
+<li>https://github.com/jamespeapen/Nvim-R/wiki/Use</li>
+</ul>
 <p>Sites that can be useful:</p>
 <p>https://github.com/nodesource/distributions/blob/master/README.md#debinstall
 http://manuals.bioinformatics.ucr.edu/home/programming-in-r/vim-r

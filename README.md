@@ -1,29 +1,37 @@
-# drawer
+# Drawer
 
-My notes to describe new things that I learn or things that I do and tend to
-forget.
+A place to keep all my fast-taken notes about R, python, bash and other dev stuff.
 
-## Workflow
+## Objective
 
- - Include the Rmd or md file
- - load docmaker package
- - To render all documents and publish in just one step: `make_all_docs(T)`
- - If there is a md file at the moment I need to copy this one to `docs/`
- 
-**Remeber** I have two bash_aliases for building and deploying docs from
-terminal instead from package function. This is useful for when I'm 
-creating `.md` documents directly:
+**Things here are just notes. These are not blogposts.**
 
- - mkb = mkdocs build --config-file=mkdocs.yml
- - ghd = mkdocs gh-deploy --strict --force
-
-## Things to remember
-
-This are not blogposts. Notes here are mean to be raw unedited notes that I
+Notes here are mean to be raw unedited notes that I
 usually take quickly while working solving things related to programming.
 
 If there is material for a blogpost, I can use the information to create and
 edit a new document in this [repo](https://github.com/ronnyhdez/blog)
+
+# Workflows
+
+There are two workflows: from RStudio and using .Rmd files or usin nvim.
+
+## From RStudio and .Rmd
+
+ - Include the Rmd or md file
+ - Load `docmaker` package
+ - To render all documents and publish in just one step: `make_all_docs(T)`
+ 
+## With nvim and .md files
+ 
+ - Open terminal and type `d` (alias to move to drawer repo)
+ - Type `w` and the name of the file to be written. (If it's new, remember to include the .md) 
+ - If there is a md file at the moment I need to copy this one to `docs/`
+ - Run `mkb` (alias for mkdocs build --config-file=mkdocs.yml)
+ - When done with the changes, run `ghd` (alias for mkdocs gh-deploy --strict --force)
+
+## Things to remember
+
 
 ## References
 

@@ -32,6 +32,7 @@ There are two workflows: from RStudio and using .Rmd files or usin nvim.
 
 ## Things to remember
 
+ - If its something fast, open terminal and type dw. It will move to drawer repo and open a new file.
 
 ## References
 

@@ -223,8 +223,10 @@ set colorcolumn=80
 " powerline to obtain bar in bottom with git/project status
 call plug#begin()
 "Plug 'gruvbox-community/gruvbox'
-Plug 'jalvesaq/Nvim-R'
-Plug 'preservim/nerdtree'
+Plug 'jalvesaq/Nvim-R'     " To work with vim and R
+Plug 'preservim/nerdtree'  " View the files
+Plug 'ncm2/ncm2'           " Auto-complete R commands
+Plug 'gaalcaras/ncm-R'     " Auto complete R commands
 call plug#end()
 
 " NERDTree configuration test
@@ -251,6 +253,8 @@ file to try to relieve some pain.
 `\l` Run current line, but cursor will stay on the same line.
 
 `\pp` Run paragraph. But cursor will stay on the same block. 
+
+`\pd` Runs block and move to the next one
 
 `\ss` Execute a block of **selected code**. This has to be done with visual mode
 
@@ -282,6 +286,13 @@ jumping panels from left to right.
 
 
 # References
+
+Plugin repos
+
+ - https://github.com/gaalcaras/ncm-R
+ - https://github.com/preservim/nerdtree
+ - https://github.com/jamespeapen/Nvim-R/wiki/Use
+
 
 Sites that can be useful:
 

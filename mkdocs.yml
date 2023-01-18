@@ -17,7 +17,7 @@ extra:
 theme:
    name: material
    font:
-     text: Inconsolata
+     text: Open Sans
    favicon: images/pencil.png
    logo: images/pen-to-square-regular.svg
    palette: 

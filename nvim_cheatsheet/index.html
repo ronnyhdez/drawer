@@ -10,21 +10,27 @@
         <meta name="author" content="Ronny A. Hernández Mora">
       
       
+        <link rel="canonical" href="https://ronnyhdez.github.io/drawer/nvim_cheatsheet/">
       
       
-      <link rel="icon" href="/drawer/images/pencil.png">
+        <link rel="prev" href="../linux/">
+      
+      
+        <link rel="next" href="../questions_in_r/">
+      
+      <link rel="icon" href="../images/pencil.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.5">
     
     
       
-        <title>Drawer Where I keep my R notes (and other dev stuff)</title>
+        <title>Keybindings to work with nvim and R - Drawer Where I keep my R notes (and other dev stuff)</title>
       
     
     
-      <link rel="stylesheet" href="/drawer/assets/stylesheets/main.558e4712.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.558e4712.min.css">
       
         
-        <link rel="stylesheet" href="/drawer/assets/stylesheets/palette.2505c338.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
       
       
 
@@ -40,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("/drawer/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#keybindings-to-work-with-nvim-and-r" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -74,9 +85,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/drawer/." title="Drawer Where I keep my R notes (and other dev stuff)" class="md-header__button md-logo" aria-label="Drawer Where I keep my R notes (and other dev stuff)" data-md-component="logo">
+    <a href=".." title="Drawer Where I keep my R notes (and other dev stuff)" class="md-header__button md-logo" aria-label="Drawer Where I keep my R notes (and other dev stuff)" data-md-component="logo">
       
-  <img src="/drawer/images/pen-to-square-regular.svg" alt="logo">
+  <img src="../images/pen-to-square-regular.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -92,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Keybindings to work with nvim and R
             
           </span>
         </div>
@@ -171,9 +182,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/drawer/." title="Drawer Where I keep my R notes (and other dev stuff)" class="md-nav__button md-logo" aria-label="Drawer Where I keep my R notes (and other dev stuff)" data-md-component="logo">
+    <a href=".." title="Drawer Where I keep my R notes (and other dev stuff)" class="md-nav__button md-logo" aria-label="Drawer Where I keep my R notes (and other dev stuff)" data-md-component="logo">
       
-  <img src="/drawer/images/pen-to-square-regular.svg" alt="logo">
+  <img src="../images/pen-to-square-regular.svg" alt="logo">
 
     </a>
     Drawer Where I keep my R notes (and other dev stuff)
@@ -201,7 +212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/drawer/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         Welcome!
       </a>
     </li>
@@ -216,7 +227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/drawer/bash_scripts/" class="md-nav__link">
+      <a href="../bash_scripts/" class="md-nav__link">
         Bash Terminal topics
       </a>
     </li>
@@ -231,7 +242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/drawer/code_functions_challenges/" class="md-nav__link">
+      <a href="../code_functions_challenges/" class="md-nav__link">
         Code functions challenges
       </a>
     </li>
@@ -246,7 +257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/drawer/data_table/" class="md-nav__link">
+      <a href="../data_table/" class="md-nav__link">
         Data table
       </a>
     </li>
@@ -261,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/drawer/google_drive_api/" class="md-nav__link">
+      <a href="../google_drive_api/" class="md-nav__link">
         Google drive api
       </a>
     </li>
@@ -276,7 +287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/drawer/linux/" class="md-nav__link">
+      <a href="../linux/" class="md-nav__link">
         Installing RStudio in Ubuntu
       </a>
     </li>
@@ -289,11 +300,21 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/drawer/nvim_cheatsheet/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Keybindings to work with nvim and R
       </a>
+      
     </li>
   
 
@@ -306,7 +327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/drawer/questions_in_r/" class="md-nav__link">
+      <a href="../questions_in_r/" class="md-nav__link">
         Create questions with `yesno` package
       </a>
     </li>
@@ -321,7 +342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/drawer/r_spatial_tutorial/" class="md-nav__link">
+      <a href="../r_spatial_tutorial/" class="md-nav__link">
         R spatial notes
       </a>
     </li>
@@ -336,7 +357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/drawer/stringr_tips/" class="md-nav__link">
+      <a href="../stringr_tips/" class="md-nav__link">
         Stringr tips
       </a>
     </li>
@@ -351,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/drawer/vim_notes/" class="md-nav__link">
+      <a href="../vim_notes/" class="md-nav__link">
         Vim notes
       </a>
     </li>
@@ -375,6 +396,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -386,8 +409,47 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+  
+  
+
+
+
+<h1 id="keybindings-to-work-with-nvim-and-r">Keybindings to work with nvim and R</h1>
+<p><strong>Connect to R Console</strong></p>
+<pre><code>\rf
+</code></pre>
+<p><strong>Quit R console</strong></p>
+<pre><code>\rq Quit R console
+</code></pre>
+<p><strong>Run current line and move next line</strong></p>
+<pre><code>\d
+</code></pre>
+<p><strong>Execute a block of selected code</strong></p>
+<pre><code>\ss 
+</code></pre>
+<p><strong>Execute entire script</strong></p>
+<pre><code>\aa
+</code></pre>
+<p><strong>Opens Object Browser (Global environment)</strong></p>
+<pre><code>\ro
+</code></pre>
+<p><strong>Jump left panel</strong></p>
+<pre><code>ctrl + w + l
+</code></pre>
+<p><strong>Jump right pane;</strong></p>
+<pre><code>ctrl + w + h
+</code></pre>
+<p><strong>Run block of code and move next line</strong></p>
+<pre><code>\pd
+</code></pre>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -441,10 +503,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "/drawer/", "features": [], "search": "/drawer/assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/drawer/assets/javascripts/bundle.51d95adb.min.js"></script>
+      <script src="../assets/javascripts/bundle.51d95adb.min.js"></script>
       
     
   </body>

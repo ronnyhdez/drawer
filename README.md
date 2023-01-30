@@ -19,7 +19,7 @@ There are two workflows: from RStudio and using .Rmd files or usin nvim.
 ## From RStudio and .Rmd
 
  - Include the Rmd or md file
- - Load `docmaker` package
+ - Load `docmaker` package (The package is in this [repository](https://github.com/ronnyhdez/docmaker)
  - To render all documents and publish in just one step: `make_all_docs(T)`
  
 ## With nvim and .md files

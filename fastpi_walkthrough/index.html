@@ -10,20 +10,20 @@
         <meta name="author" content="Ronny A. Hernández Mora">
       
       
-        <link rel="canonical" href="https://ronnyhdez.github.io/drawer/js_rock_scissors_paper_game/">
+        <link rel="canonical" href="https://ronnyhdez.github.io/drawer/fastpi_walkthrough/">
       
       
-        <link rel="prev" href="../js/">
+        <link rel="prev" href="../data_table/">
       
       
-        <link rel="next" href="../linux/">
+        <link rel="next" href="../google_drive_api/">
       
       <link rel="icon" href="../images/pencil.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.5">
     
     
       
-        <title>A short game in js - Drawer Where I keep my R notes (and other dev stuff)</title>
+        <title>How to create an API with FastAPI and Docker - Drawer Where I keep my R notes (and other dev stuff)</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#a-short-game-in-js" class="md-skip">
+        <a href="#how-to-create-an-api-with-fastapi-and-docker" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              A short game in js
+              How to create an API with FastAPI and Docker
             
           </span>
         </div>
@@ -270,11 +270,52 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../fastpi_walkthrough/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          How to create an API with FastAPI and Docker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         How to create an API with FastAPI and Docker
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -315,21 +356,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../js_rock_scissors_paper_game/" class="md-nav__link">
         A short game in js
       </a>
-      
     </li>
   
 
@@ -444,6 +475,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -461,87 +507,107 @@
 
 
 
-<h1 id="a-short-game-in-js">A short game in js</h1>
-<p>The idea was to create the 'rock, paper, scissors' game using the concepts
-of creating a function and the ifelse.</p>
-<pre><code>console.log('hi');
+<h1 id="how-to-create-an-api-with-fastapi-and-docker">How to create an API with FastAPI and Docker</h1>
+<p>First, create repo that will contain all the files. Then open the repo
+from VScode. </p>
+<p>Create a new python file. In the python file, we can create a simple API like
+the following:</p>
+<pre><code>import uvicorn
+from fastapi import FastAPI
 
-const getUserChoice = (userInput) =&gt; {
-  userInput = userInput.toLowerCase();
-  if (userInput === 'rock') {
-    return (userInput);
-  } else if (userInput === 'paper') {
-    return(userInput);
-  } else if (userInput === 'scissors') {
-    return(userInput)
-  } else {
-    console.log('Error, option not available');
-  }
+app = FastAPI()
+
+inventory = {
+    1: {
+        &quot;name&quot;: &quot;Milk&quot;,
+        &quot;price&quot;: 3.99,
+        &quot;brand&quot;: &quot;dospinos&quot;
+    },
+    2: {
+        &quot;name&quot;: &quot;Milk&quot;,
+        &quot;price&quot;: 4.99,
+        &quot;brand&quot;: &quot;coronado&quot;
+    }
 }
 
-const getComputerChoice = () =&gt; {
-  compNumber = Math.floor(Math.random() * 3 )
-  let compChoice = ''
 
-  switch(compNumber) {
-    case 0:
-      compChoice = 'rock';
-      break;
-    case 1:
-      compChoice = 'paper';
-      break;
-    case 2:
-      compChoice = 'scissors';
-      break;
-    }
-  return(compChoice)
-}
-
-const determineWinner = (userChoice, computerChoice) =&gt; {
-  if (userChoice === computerChoice) {
-    return('It\'s a tie!')
-  }
-
-  if (userChoice === 'rock') {
-    if (computerChoice === 'paper') {
-      return('Computer won')
-    } else {
-      return('Human won')
-    }
-  }
-
-   if (userChoice === 'paper') {
-    if (computerChoice === 'scissors') {
-      return('Computer won')
-    } else {
-      return('Human won')
-    }
-  }
-
-   if (userChoice === 'scissors') {
-    if (computerChoice === 'rock') {
-      return('Computer won')
-    } else {
-      return('Human won')
-    }
-  }
-}
-
-const playGame = () =&gt; {
-  let userChoice = getUserChoice('paper')
-  console.log(userChoice)  
-  let computerChoice = getComputerChoice()
-  console.log(computerChoice)
-
-  console.log(determineWinner(userChoice, computerChoice))
-}
-
-playGame()
+@app.get(&quot;/get-item/{item_id}&quot;)
+def get_item(item_id: int):
+    return inventory[item_id]
 
 
-
-
+# if __name__ == '__main__':
+#     uvicorn.run(app, host='0.0.0.0', port=8000)
 </code></pre>
+<p>Once the file is created, before running the file, I have to create the
+environment:</p>
+<pre><code>pipenv install
+</code></pre>
+<p>Then, let's activate the environment</p>
+<pre><code>pipenv shell
+</code></pre>
+<p>Let's check the environment</p>
+<pre><code>pipenv --venv
+</code></pre>
+<p>Everything setup, with the last lines of code in the python file with the API
+we can run it with:</p>
+<pre><code>python3 name_of_file.py
+</code></pre>
+<p>That will serve the API in port 8000. We can go and check if it's running
+on localhost:8000</p>
+<p>If, those lines are not present, we can use the <code>uvicorn</code> package to serve the
+API:</p>
+<pre><code>uvicorn api_example_1:app
+</code></pre>
+<p>Note that there is no <code>.py</code> in the name of the file we want to run.</p>
+<h2 id="docker">Docker</h2>
+<p>Now that we have build the API and were able to serve it, we can dockerized.</p>
+<p>For this, with the Docker extension in VScode, we can press <code>Fn + F1</code> to
+create a file. If the extension throws an error about no connection to daemon
+socket, we need to aggregate Docker to sudo permissions:</p>
+<pre><code>sudo usermod -aG docker ${USER}
+</code></pre>
+<p>I had to restart computer to make this work. After that I was able to use the
+Docker extension. After opening the options, I look for <em>add docker file</em>
+and wrote the options asked.</p>
+<p>After this, a Docker file was created and also the <code>requirements.txt</code> file
+to be used during the image build process with venv (I think).</p>
+<p>The Docker file looks like the following:</p>
+<pre><code># For more information, please refer to https://aka.ms/vscode-docker-python
+FROM python:3.10-slim
+
+EXPOSE 8090
+
+# Keeps Python from generating .pyc files in the container
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Turns off buffering for easier container logging
+ENV PYTHONUNBUFFERED=1
+
+# Install pip requirements
+COPY requirements.txt .
+RUN python -m pip install -r requirements.txt
+
+WORKDIR /app
+COPY . /app
+
+# Creates a non-root user with an explicit UID and adds permission to access the /app folder
+# For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
+RUN adduser -u 5678 --disabled-password --gecos &quot;&quot; appuser &amp;&amp; chown -R appuser /app
+USER appuser
+
+# During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
+CMD [&quot;gunicorn&quot;, &quot;--bind&quot;, &quot;0.0.0.0:8090&quot;, &quot;-k&quot;, &quot;uvicorn.workers.UvicornWorker&quot;, &quot;api_example_1:app&quot;]
+</code></pre>
+<p>Now, the next step is to build the image and run it:</p>
+<pre><code>docker built -t test-api .
+</code></pre>
+<p>Then, run the container:</p>
+<pre><code>docker run -p 8000:8090 test-api
+</code></pre>
+<p>The instruction will bind the port 8000 on the host with the port 8090 in the
+container.</p>
+<p>Now we can check the container service in localhost:8000</p>
 
 
 

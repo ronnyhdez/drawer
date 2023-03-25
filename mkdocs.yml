@@ -1,4 +1,4 @@
-site_name: Drawer Where I keep my R notes (and other dev stuff)
+site_name: Drawer Where I keep my dev notes.
 site_url: https://ronnyhdez.github.io/drawer/
 site_author: Ronny A. Hernández Mora
 repo_url: https://github.com/ronnyhdez/drawer
@@ -16,6 +16,8 @@ extra:
       name: Ronny on GitHub
 theme:
    name: material
+   extra_css:
+     docs/extra.css 
    font:
      text: Open Sans
    favicon: images/pencil.png

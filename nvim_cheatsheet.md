@@ -1,5 +1,6 @@
 # Keybindings to work with nvim and R
 
+
 **Connect to R Console**
 
 ```

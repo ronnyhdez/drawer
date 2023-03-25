@@ -21,7 +21,7 @@
     
     
       
-        <title>Drawer Where I keep my R notes (and other dev stuff)</title>
+        <title>Drawer Where I keep my dev notes.</title>
       
     
     
@@ -83,7 +83,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Drawer Where I keep my R notes (and other dev stuff)" class="md-header__button md-logo" aria-label="Drawer Where I keep my R notes (and other dev stuff)" data-md-component="logo">
+    <a href="." title="Drawer Where I keep my dev notes." class="md-header__button md-logo" aria-label="Drawer Where I keep my dev notes." data-md-component="logo">
       
   <img src="images/pen-to-square-regular.svg" alt="logo">
 
@@ -95,7 +95,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Drawer Where I keep my R notes (and other dev stuff)
+            Drawer Where I keep my dev notes.
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -180,12 +180,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Drawer Where I keep my R notes (and other dev stuff)" class="md-nav__button md-logo" aria-label="Drawer Where I keep my R notes (and other dev stuff)" data-md-component="logo">
+    <a href="." title="Drawer Where I keep my dev notes." class="md-nav__button md-logo" aria-label="Drawer Where I keep my dev notes." data-md-component="logo">
       
   <img src="images/pen-to-square-regular.svg" alt="logo">
 
     </a>
-    Drawer Where I keep my R notes (and other dev stuff)
+    Drawer Where I keep my dev notes.
   </label>
   
     <div class="md-nav__source">
@@ -244,15 +244,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-you-can-find-here" class="md-nav__link">
-    What you can find here
+  <a href="#notes-organization" class="md-nav__link">
+    Notes organization
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-this-site-was-built" class="md-nav__link">
-    How this site was built?
+  <a href="#how-can-i-use-the-notes" class="md-nav__link">
+    How can I use the notes?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-can-i-create-my-own-drawer" class="md-nav__link">
+    How can I create my own "drawer"?
   </a>
   
 </li>
@@ -494,15 +501,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-you-can-find-here" class="md-nav__link">
-    What you can find here
+  <a href="#notes-organization" class="md-nav__link">
+    Notes organization
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-this-site-was-built" class="md-nav__link">
-    How this site was built?
+  <a href="#how-can-i-use-the-notes" class="md-nav__link">
+    How can I use the notes?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-can-i-create-my-own-drawer" class="md-nav__link">
+    How can I create my own "drawer"?
   </a>
   
 </li>
@@ -534,39 +548,40 @@
 
 
 <h1 id="welcome">Welcome!</h1>
-<p>Hi! I'm <a href="https://ronnyale.com/">ronny</a> and this site is my digital drawer made 
-public. This means that you will find here <strong>raw notes</strong> that I usually take 
-when I working with data and I have the need to document the process I'm following.</p>
-<p>Be aware that this is not an organized place. It's just a place where
-I put all my R notes to look for after (in case my future self forgets what I
-did in the past). If you want to check a place with tutorials and edited notes
-you can go and check my <a href="https://ronnyhdez.github.io/blog/">blog</a>. It's in
-spanglish (some posts in Spanish, others in English and maybe some of them
-with a mix) and I usually source part of the material from here.</p>
-<p>If something works for you as a reference, great! Take it! Before this, all
-this notes where kept in my desk <strong>drawer</strong></p>
-<h2 id="what-you-can-find-here">What you can find here</h2>
-<ul>
-<li>On your <strong>left side</strong> you will see the main table of contents</li>
-<li>On your <strong>right side</strong> you will see the table of contents from the specific 
- section you are in.</li>
-</ul>
-<h2 id="how-this-site-was-built">How this site was built?</h2>
-<p>This site is hosted in GitHub. I just created the repo, went to configuration 
-and enabled github pages. Then, with a bit of help of <a href="https://www.mkdocs.org/">mkdocs</a>
-and the <a href="https://squidfunk.github.io/mkdocs-material/">material theme</a> the site 
-came to life.</p>
-<p>And now all my <a href="https://rmarkdown.rstudio.com/">Rmarkdown</a> notes fits in this site! </p>
-<p>Also, I was kind of <a href="https://www.linguee.com/english-spanish/search?source=spanish&amp;query=obstinado">"obstinado"</a> having to repeat a couple of steps for
-each note that I wanted to deploy, so I created some R functions (around 3)
-to deal with this workflow and put everything together in a small R package
-that I called <a href="https://github.com/ronnyhdez/docmaker">docmaker</a> (Available
-just on GitHub)</p>
-<p>If you are new to this kind of documentation, I recommend you to check
-at least the package documentation, so you can find how to set-up
-everything to create your own site and give some freedom to your documentation.</p>
+<p><img src="images/pencil.png" alt="Image description" width="200" height="120" style="float:right; margin-left:10px;"></p>
+<p>Hi! I'm <a href="https://ronnyale.com/">ronny</a> and this site is my <strong>digital drawer notes</strong>
+This means that you will find here <strong>raw notes</strong> about my dev journey. I take 
+this notes usually when learning new things, solving coding problems or when
+I'm doing some data analysis. Most of the topics will be about R, python,
+JavaScript, Linux, nvim, tmux among other tools that I use in my day to day or
+that I want to learn.</p>
+<p>Although I try to keep everything organized, sometimes I'm in a hurry, and as
+they say: it's better some documentation than nothing!</p>
+<h2 id="notes-organization">Notes organization</h2>
+<p>This site have on the left side bar the <strong>main table of contents</strong>. When you
+choose one of those, you will see in the right side bar a second table of
+contents specifically for the main topic selected.</p>
+<p>I'm always trying to keep the topics and the content well organized, but this
+is a WIP (Work In Progress), so it will be changing through time.</p>
+<h2 id="how-can-i-use-the-notes">How can I use the notes?</h2>
+<p>If something works for you as a reference or as a guide, great! Take it and use
+it! Before this, all this notes where kept in my real physical notebook on
+my desk <strong>drawer</strong> (Hence the name)</p>
+<p>Given that the notes here are a WIP and can be changing constantly, I created
+a "more curated site" that is my <a href="https://ronnyhdez.github.io/blog/">blog</a>. Some
+of the posts use content first created here, but usually they have a more
+extended explanation.</p>
+<h2 id="how-can-i-create-my-own-drawer">How can I create my own "drawer"?</h2>
+<p>I have a <a href="https://ronnyhdez.github.io/blog/posts/2021-12-11-usingmkdocsrmd/">blogpost</a>
+about it where you can learn and follow all the steps to build your own drawer. Also,
+I have a <a href="https://www.youtube.com/watch?v=ytngbbTt0Xo">webinar with DataLatam</a> (in spanish)
+on which I show all the steps with an example.</p>
+<p>In summary, I take my notes on <code>.Rmd</code>, <code>.qmd</code> or <code>md</code> files and with the help of
+my R package <a href="https://ronnyhdez.github.io/docmaker/index.html">docmaker</a>, I
+run the necessary steps to build the website with tools such as <a href="https://www.mkdocs.org/">mkdocs</a>
+and GitHub Pages.</p>
 <h2 id="who-i-am">Who I am?</h2>
-<p>I'm a <a href="http://ronnyhdez.rbind.io/">desk biologist</a> who likes to play 
+<p>I consider myself a <a href="https://ronnyale.com/">desk biologist</a> who likes to play 
 around with my computer, specially with R, Linux, Vim and a couple of other tools.</p>
 
 

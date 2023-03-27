@@ -10,20 +10,20 @@
         <meta name="author" content="Ronny A. Hernández Mora">
       
       
-        <link rel="canonical" href="https://ronnyhdez.github.io/drawer/linux/">
+        <link rel="canonical" href="https://ronnyhdez.github.io/drawer/docker/">
       
       
-        <link rel="prev" href="../js_rock_scissors_paper_game/">
+        <link rel="prev" href="../data_table/">
       
       
-        <link rel="next" href="../nvim_cheatsheet/">
+        <link rel="next" href="../fastpi_walkthrough/">
       
       <link rel="icon" href="../images/pencil.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.5">
     
     
       
-        <title>Installing RStudio in Ubuntu - Drawer Where I keep my dev notes.</title>
+        <title>Docker - Drawer Where I keep my dev notes.</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installing-rstudio-in-ubuntu" class="md-skip">
+        <a href="#docker" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installing RStudio in Ubuntu
+              Docker
             
           </span>
         </div>
@@ -270,11 +270,52 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../docker/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Docker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Docker
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps-to-run-container-with-mounted-volumes" class="md-nav__link">
+    Steps to run container with mounted volumes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -345,108 +386,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Installing RStudio in Ubuntu
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
         Installing RStudio in Ubuntu
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#instalar-gdebi" class="md-nav__link">
-    Instalar gdebi
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#especificar-version-de-r" class="md-nav__link">
-    Especificar version de R
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#descargar-binario-de-r" class="md-nav__link">
-    Descargar binario de R
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#instalar-binario-de-r" class="md-nav__link">
-    Instalar binario de R
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#validar-version-de-r" class="md-nav__link">
-    Validar version de R
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#crear-los-symlink" class="md-nav__link">
-    Crear los symlink
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#instalacion-de-rstudio-en-ubuntu-2010" class="md-nav__link">
-    Instalaci'on de RStudio en ubuntu 20.10
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#instalar-con-gdebi-rstudio" class="md-nav__link">
-    instalar con gdebi rstudio
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#actualizar-paquetes" class="md-nav__link">
-    Actualizar paquetes.
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -553,64 +497,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#instalar-gdebi" class="md-nav__link">
-    Instalar gdebi
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#especificar-version-de-r" class="md-nav__link">
-    Especificar version de R
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#descargar-binario-de-r" class="md-nav__link">
-    Descargar binario de R
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#instalar-binario-de-r" class="md-nav__link">
-    Instalar binario de R
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#validar-version-de-r" class="md-nav__link">
-    Validar version de R
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#crear-los-symlink" class="md-nav__link">
-    Crear los symlink
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#instalacion-de-rstudio-en-ubuntu-2010" class="md-nav__link">
-    Instalaci'on de RStudio en ubuntu 20.10
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#instalar-con-gdebi-rstudio" class="md-nav__link">
-    instalar con gdebi rstudio
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#actualizar-paquetes" class="md-nav__link">
-    Actualizar paquetes.
+  <a href="#steps-to-run-container-with-mounted-volumes" class="md-nav__link">
+    Steps to run container with mounted volumes
   </a>
   
 </li>
@@ -634,82 +522,66 @@
 
 
 
-<h1 id="installing-rstudio-in-ubuntu">Installing RStudio in Ubuntu</h1>
-<p>Instalacion de R en ubuntu 20.10 desde binario de RStudio</p>
-<h2 id="instalar-gdebi">Instalar gdebi</h2>
-<pre><code>sudo apt update
-sudo apt install gdebi-core
-</code></pre>
-<h2 id="especificar-version-de-r">Especificar version de R</h2>
-<pre><code>export R_VERSION=4.1.1
-</code></pre>
-<h2 id="descargar-binario-de-r">Descargar binario de R</h2>
-<pre><code>curl -O https://cdn.rstudio.com/r/ubuntu-2004/pkgs/r-${R_VERSION}_1_amd64.deb
-</code></pre>
-<h2 id="instalar-binario-de-r">Instalar binario de R</h2>
-<pre><code>sudo gdebi r-${R_VERSION}_1_amd64.deb
-</code></pre>
-<h2 id="validar-version-de-r">Validar version de R</h2>
-<pre><code>/opt/R/${R_VERSION}/bin/R --version
-</code></pre>
-<h2 id="crear-los-symlink">Crear los symlink</h2>
-<pre><code>sudo ln -s /opt/R/${R_VERSION}/bin/R /usr/local/bin/R
-sudo ln -s /opt/R/${R_VERSION}/bin/Rscript /usr/local/bin/Rscript
-</code></pre>
-<h2 id="instalacion-de-rstudio-en-ubuntu-2010">Instalaci'on de RStudio en ubuntu 20.10</h2>
-<p>Descarga RStudio desktop desde el sitio https://www.rstudio.com/products/rstudio/download/#download</p>
-<p>Validar en que carpeta de la computadora quedo el archivo comprimido</p>
-<h2 id="instalar-con-gdebi-rstudio">instalar con gdebi rstudio</h2>
-<pre><code>sudo gdebi Downloads/rstudio-1.4.1717-amd64.deb 
-</code></pre>
-<h2 id="actualizar-paquetes">Actualizar paquetes.</h2>
-<p>Al tener la nueva instalacion, los paquetes que tenia instalados, 
-ya no los tengo. En lugar de ir instalando cada uno por separado,
-lo que hago es que el directorio donde tenia las instalaciones de los
-paquetes, la copio en la nueva direccion.</p>
-<pre><code>/home/ronny/R/x86_64-pc-linux-gnu-library/4.1
-</code></pre>
-<p>Luego, abro RStudio, en el panel de paquetes selecciono la opcion <code>update</code>, 
-luego <code>Select all</code> y por ultimo <code>Install Updates</code>.  Asi se instalaran todos 
-los paquetes que tenia anteriormente.</p>
-<h1 id="apache-configuration-steps-for-shiny-server">Apache configuration steps for shiny server</h1>
+<h1 id="docker">Docker</h1>
+<p>Notes about working with Docker</p>
+<h2 id="steps-to-run-container-with-mounted-volumes">Steps to run container with mounted volumes</h2>
 <ul>
-<li>Para saber si un archivo es un symlink: file archivo</li>
+<li>I have a model that takes as an input an image</li>
+<li>A model make predictions over the image</li>
+<li>The output is an xml file</li>
+<li>I need the container to read the image from an specific directory in the host</li>
+<li>I need the container to write the results in an specific directory in the hots</li>
 </ul>
-<h2 id="instalar-dependencias">Instalar dependencias:</h2>
-<pre><code>sudo apt-get install apache2
-sudo apt-get install libapache2-mod-proxy-html
-sudo apt-get install libxml2-dev
-</code></pre>
-<h2 id="habilitar-modulos">Habilitar modulos</h2>
-<pre><code>sudo a2enmod proxy
-sudo a2enmod proxy_http
-sudo a2enmod proxy_wstunnel
-sudo a2enmod rewrite
-</code></pre>
-<h2 id="configurar-archivo-etcapache2sites-available000-defaultconf">Configurar archivo /etc/apache2/sites-available/000-default.conf</h2>
-<p>Dejar lo siguiente: (se puede borrar todo lo demas)</p>
-<pre><code>&lt;VirtualHost *:80&gt;
+<p>The Dockerfile:</p>
+<pre><code>FROM ubuntu:latest
 
-  &lt;Proxy *&gt;
-    Allow from localhost
-  &lt;/Proxy&gt;
+# Update package list and install GDAL and Python dependencies
+RUN apt-get update &amp;&amp; \
+    apt-get install -y python3 python3-pip gdal-bin libgdal-dev ffmpeg libsm6 libxext6
 
- RewriteEngine on
- RewriteCond %{HTTP:Upgrade} =websocket
- RewriteRule /(.*) ws://localhost:3838/$1 [P,L]
- RewriteCond %{HTTP:Upgrade} !=websocket
- RewriteRule /(.*) http://localhost:3838/$1 [P,L]
- ProxyPass / http://localhost:3838/
- ProxyPassReverse / http://localhost:3838/
- ProxyRequests Off
+# Set environment variables for GDAL
+ENV LD_LIBRARY_PATH=/usr/lib
+ENV GDAL_DATA=/usr/share/gdal/
 
-&lt;/VirtualHost&gt;
+EXPOSE 8080
+
+# Keeps Python from generating .pyc files in the container
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Turns off buffering for easier container logging
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+# Install pip requirements
+COPY ./requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
+
+COPY . /app
+
+# Define the input and output folder as volumes
+VOLUME /app/input_files
+VOLUME /app/predictions
+
+# Creates a non-root user with an explicit UID and adds permission to access the /app folder
+# For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
+RUN adduser -u 5678 --disabled-password --gecos &quot;&quot; appuser &amp;&amp; chown -R appuser /app
+USER appuser
+
+CMD [&quot;python3&quot;, &quot;predict_process.py&quot;, &quot;--input_folder=/app/input_files&quot;, &quot;--output_folder=/app/predictions&quot;]
 </code></pre>
-<h1 id="reiniciar-apache">Reiniciar apache</h1>
-<pre><code>sudo systemctl restart apache2
+<p>After I build the image with the name predict_io, I can run the container
+indicating the paths in my host. Also, this container needs to run using
+the host GPU:</p>
+<pre><code>docker run --gpus all -v /home/ronny/Desktop/io_test/in/:/app/input_files -v /home/ronny/Desktop/io_test/out/:/app/predictions predict_io
 </code></pre>
-<h1 id="ir-a-revisar-la-direccion-ip-a-ver-si-ya-no-tenemos-que-usar-la-puerta">Ir a revisar la direccion ip a ver si ya no tenemos que usar la puerta</h1>
+<p>When the container runs, it will retrieve the image from 
+<strong>/home/ronny/Desktop/io_test/in/</strong>, and it will write the results on
+<strong>/home/ronny/Desktop/io_test/out/</strong></p>
+<p>If I receive the error: <code>Permission denied</code>, I will have to change the
+permissions in the host output folder. I did it with:</p>
+<pre><code>chmod a+w /home/ronny/Desktop/io_test/out/
+</code></pre>
 
 
 

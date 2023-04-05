@@ -265,6 +265,28 @@ const plantNeedsWater = (day) => {
 const plantNeedsWater = day => day === 'Wednesday' ? true : false;
 ```
 
+## Callback functions
+
+It's when a function is passed to another one as an argument. The function
+can be invoked  during the execution of that higher order function. Remember
+that in JS functions are objects, so functions can be passed as arguments.
+
+```
+const isEven = (n) => {
+	return n % 2 == 0
+}
+
+let printMsg = (evenFunc, num) => {
+	const isNumEven = evenFunc(num);
+	console.log(`The number ${num} is an even number: ${isNumEven}.`)
+}
+
+// Pass in isEven as the callback function
+printMsg(isEven, 4); 
+
+// Prints: The number 4 is an even number: True.
+```
+
 ## Scope pollution
 
 Scoping rules are the same as in R. Nothing new. But there is one phenomena

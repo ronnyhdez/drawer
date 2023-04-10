@@ -10,20 +10,20 @@
         <meta name="author" content="Ronny A. Hernández Mora">
       
       
-        <link rel="canonical" href="https://ronnyhdez.github.io/drawer/stringr_tips/">
+        <link rel="canonical" href="https://ronnyhdez.github.io/drawer/python/">
       
       
-        <link rel="prev" href="../r_spatial_tutorial/">
+        <link rel="prev" href="../nvim_cheatsheet/">
       
       
-        <link rel="next" href="../vim_notes/">
+        <link rel="next" href="../questions_in_r/">
       
       <link rel="icon" href="../images/pencil.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.5">
     
     
       
-        <title>Stringr tips - Drawer Where I keep my dev notes.</title>
+        <title>Python notes - Drawer Where I keep my dev notes.</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-extract-numbers-from-a-string" class="md-skip">
+        <a href="#python-notes" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Stringr tips
+              Python notes
             
           </span>
         </div>
@@ -360,11 +360,66 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../python/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Python notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Python notes
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-python-conda-environment" class="md-nav__link">
+    Set up python conda environment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environmental-variables" class="md-nav__link">
+    Environmental variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-pipenv" class="md-nav__link">
+    Working with pipenv
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -405,55 +460,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Stringr tips
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../stringr_tips/" class="md-nav__link">
         Stringr tips
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-extract-numbers-from-a-string" class="md-nav__link">
-    How to extract numbers from a string
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extract-string-between-brackets" class="md-nav__link">
-    Extract string between brackets
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -490,6 +501,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -498,15 +511,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-extract-numbers-from-a-string" class="md-nav__link">
-    How to extract numbers from a string
+  <a href="#set-up-python-conda-environment" class="md-nav__link">
+    Set up python conda environment
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#extract-string-between-brackets" class="md-nav__link">
-    Extract string between brackets
+  <a href="#environmental-variables" class="md-nav__link">
+    Environmental variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-pipenv" class="md-nav__link">
+    Working with pipenv
   </a>
   
 </li>
@@ -530,80 +550,87 @@
 
 
 
-  <h1>Stringr tips</h1>
+<h1 id="python-notes">Python notes</h1>
+<p>This is the section to include all notes related to python development.</p>
+<h2 id="set-up-python-conda-environment"><strong>Set up python conda environment</strong></h2>
+<p>This notes are here just as a reference. <strong>Don't use anaconda</strong>. If I need
+a tool to manage environments, it's preferable to use <strong>pipenv</strong> or <strong>venv</strong>.</p>
+<p>I have faced many problems within projects when trying to program in python
+with the virtual environments managed by anaconda. I didn't document the
+problems given that I though I wasn't understanding the process, but all the
+problems were gone when I uninstalled anaconda and started using pipenv.</p>
+<ul>
+<li>Check if there are already envs:</li>
+</ul>
+<pre><code>conda info --envs
 
-<p>How many hours have I spent looking how to solve a regex?</p>
-<p>A lot!</p>
-<p>So here I have some quick notes on things that I have solved before and
-forget about it pretty often.</p>
-<h2 id="how-to-extract-numbers-from-a-string">How to extract numbers from a string</h2>
-<p>Sometimes, I need to extract just the numbers that I can find in a
-string. To achieve this, I can use the following function:</p>
-<pre><code>library(stringr)
-
-string_with_numbers &lt;- c("01 uno", "02 dos")
-
-str_extract(string_with_numbers , "\\d+")
-
-## [1] "01" "02"
+# conda environments:
+#
+base                  *  /home/ronny/anaconda3
+gee                      /home/ronny/anaconda3/envs/gee
+gpp                      /home/ronny/anaconda3/envs/gpp
+satellite                /home/ronny/anaconda3/envs/satellite
 </code></pre>
-<h2 id="extract-string-between-brackets">Extract string between brackets</h2>
-<pre><code>library(stringr)
-library(tibble)
-library(dplyr)
-library(tidyr)
-
-## 
-## Attaching package: 'tidyr'
-
-## The following object is masked from 'package:terra':
-## 
-##     extract
-
-## The data frames with the column that I need
-check &lt;- tribble(
-  ~geo,
-  "{\"geodesic\":false,\"type\":\"Point\",\"coordinates\":[-79.94739867829001,44.3105986723403]}" , 
-  "{\"geodesic\":false,\"type\":\"Point\",\"coordinates\":[-79.94714795170373,44.310596361431216]}",
-  "{\"geodesic\":false,\"type\":\"Point\",\"coordinates\":[-79.9468972251475,44.31059404997191]}" , 
-  "{\"geodesic\":false,\"type\":\"Point\",\"coordinates\":[-79.9466464986213,44.31059173796237]}" , 
-  "{\"geodesic\":false,\"type\":\"Point\",\"coordinates\":[-79.94639577212517,44.3105894254026]}" , 
-  "{\"geodesic\":false,\"type\":\"Point\",\"coordinates\":[-79.9461450456591,44.310587112292595]}" 
-)
-
-## Solution 1 (Didn't work)
-check %&gt;% 
-  mutate(test = str_extract(geo, "\\[|\\]") ) %&gt;% 
-  select(test)
-
-## # A tibble: 6 × 1
-##   test 
-##   &lt;chr&gt;
-## 1 [    
-## 2 [    
-## 3 [    
-## 4 [    
-## 5 [    
-## 6 [
-
-# Solution 2 (This one works!)
-check %&gt;% 
-  mutate(test = str_extract(geo, "\\[(.*?)\\]") ) %&gt;% 
-  select(test) %&gt;% 
-  separate(col = "test", into = c("lat", "long"), sep = ",") %&gt;% 
-  mutate(lat = str_extract(lat, "-?[0-9.]+"),
-         long = str_extract(long, "-?[0-9.]+"))
-
-## # A tibble: 6 × 2
-##   lat                long              
-##   &lt;chr&gt;              &lt;chr&gt;             
-## 1 -79.94739867829001 44.3105986723403  
-## 2 -79.94714795170373 44.310596361431216
-## 3 -79.9468972251475  44.31059404997191 
-## 4 -79.9466464986213  44.31059173796237 
-## 5 -79.94639577212517 44.3105894254026  
-## 6 -79.9461450456591  44.310587112292595
+<ul>
+<li>To activate/deactivate:</li>
+</ul>
+<pre><code>conda activate
+conda deactivate
 </code></pre>
+<ul>
+<li>There is a difference between:</li>
+</ul>
+<pre><code>apt install spyder
+conda install spyder
+</code></pre>
+<ul>
+<li>To create a new env:</li>
+</ul>
+<pre><code>conda create --name gee python = 3.5
+</code></pre>
+<h2 id="environmental-variables">Environmental variables</h2>
+<p>If I have credentials that I need to use in one project, what I can do is to
+store them as a system environmental variable and then call them later in the
+python script. This can be achieve with the following steps:</p>
+<ul>
+<li>In the terminal, create the variables:</li>
+</ul>
+<pre><code>export my_username=fulano
+export my_password=123abc
+</code></pre>
+<ul>
+<li>Then, let's check if the step above was succesful:</li>
+</ul>
+<pre><code>echo $my_username
+echo $my_password
+</code></pre>
+<p>They should print the values we stored.</p>
+<ul>
+<li>Now, in the python script, let's access those values</li>
+</ul>
+<pre><code>print(os.environ[my_username])
+print(os.environ[my_password])
+</code></pre>
+<p>This should return the values of the environmental variables.</p>
+<p>There is one way to create the environmental variables in a file that we can 
+include in the project and ignore it in the <code>.gitignore</code>. The steps for this
+are <a href="https://developer.vonage.com/blog/21/10/01/python-environment-variables-a-primer#:~:text=Environment%20variables%20are%20variables%20you,it%20connects%20to%20the%20API.">here</a></p>
+<h2 id="working-with-pipenv">Working with pipenv</h2>
+<p>If I have a project already started by someone else, and it have a pip file +
+<code>pipfile.lock</code> I can follow the next steps: </p>
+<ul>
+<li>I cloned the repo</li>
+<li>There is a pip file + pipfile.lock</li>
+<li>When on the directory, I run <code>pipenv install</code></li>
+<li>When everything was already installed, I ran <code>pipenv shell</code></li>
+<li>Then, I will see <code>(CEOS-research) (base) ronny@ronny:~/Documents/repos/github/ceos/CEOS-research$</code> in my terminal</li>
+</ul>
+<p>If I want to check where my virtualenv is: <code>pipenv --venv</code></p>
+<p>If I installed a package with pipenv, it will be shown in the Pipfile. If I 
+ need to uninstall it, I can run <code>pipenv uninstall name_package</code>. This will 
+ remove the package also from the Pip files.</p>
+<p>To activate the environment, that we are working on, we need to run <code>pipenv shell</code></p>
+<p>To check the status of the packages <code>pipenv check</code></p>
 
 
 

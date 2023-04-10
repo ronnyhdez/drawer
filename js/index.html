@@ -420,6 +420,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#callback-functions" class="md-nav__link">
+    Callback functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#scope-pollution" class="md-nav__link">
     Scope pollution
   </a>
@@ -472,6 +479,21 @@
     <li class="md-nav__item">
       <a href="../nvim_cheatsheet/" class="md-nav__link">
         Keybindings to work with nvim and R
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        Python notes
       </a>
     </li>
   
@@ -629,6 +651,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callback-functions" class="md-nav__link">
+    Callback functions
+  </a>
   
 </li>
       
@@ -886,6 +915,24 @@ const sumNumber = (number1, number2) =&gt; {
 };
 
 const plantNeedsWater = day =&gt; day === 'Wednesday' ? true : false;
+</code></pre>
+<h2 id="callback-functions">Callback functions</h2>
+<p>It's when a function is passed to another one as an argument. The function
+can be invoked  during the execution of that higher order function. Remember
+that in JS functions are objects, so functions can be passed as arguments.</p>
+<pre><code>const isEven = (n) =&gt; {
+    return n % 2 == 0
+}
+
+let printMsg = (evenFunc, num) =&gt; {
+    const isNumEven = evenFunc(num);
+    console.log(`The number ${num} is an even number: ${isNumEven}.`)
+}
+
+// Pass in isEven as the callback function
+printMsg(isEven, 4); 
+
+// Prints: The number 4 is an even number: True.
 </code></pre>
 <h2 id="scope-pollution">Scope pollution</h2>
 <p>Scoping rules are the same as in R. Nothing new. But there is one phenomena

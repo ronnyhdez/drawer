@@ -267,13 +267,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#set-up-python-conda-environment" class="md-nav__link">
-    Set up python conda environment
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -410,6 +403,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        Python notes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../questions_in_r/" class="md-nav__link">
         Create questions with `yesno` package
       </a>
@@ -495,13 +503,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#set-up-python-conda-environment" class="md-nav__link">
-    Set up python conda environment
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -536,36 +537,6 @@ date1=`date +%s`; while true; do
 <pre><code>alias timer=&quot;bash /home/ronny/timer.sh&quot; 
 </code></pre>
 <p>So, any time I open the terminal, I can have a timer just typing <code>timer</code></p>
-<h2 id="set-up-python-conda-environment"><strong>Set up python conda environment</strong></h2>
-<ul>
-<li>Check if there are already envs:</li>
-</ul>
-<pre><code>conda info --envs
-
-# conda environments:
-#
-base                  *  /home/ronny/anaconda3
-gee                      /home/ronny/anaconda3/envs/gee
-gpp                      /home/ronny/anaconda3/envs/gpp
-satellite                /home/ronny/anaconda3/envs/satellite
-</code></pre>
-<ul>
-<li>To activate/deactivate:</li>
-</ul>
-<pre><code>conda activate
-conda deactivate
-</code></pre>
-<ul>
-<li>There is a difference between:</li>
-</ul>
-<pre><code>apt install spyder
-conda install spyder
-</code></pre>
-<ul>
-<li>To create a new env:</li>
-</ul>
-<pre><code>conda create --name gee python = 3.5
-</code></pre>
 
 
 

@@ -80,3 +80,37 @@ This should return the values of the environmental variables.
 There is one way to create the environmental variables in a file that we can 
 include in the project and ignore it in the `.gitignore`. The steps for this
 are [here](https://developer.vonage.com/blog/21/10/01/python-environment-variables-a-primer#:~:text=Environment%20variables%20are%20variables%20you,it%20connects%20to%20the%20API.)
+
+## Working with pipenv
+
+If I have a project already started by someone else, and it have a pip file +
+`pipfile.lock` I can follow the next steps: 
+
+ - I cloned the repo
+ - There is a pip file + pipfile.lock
+ - When on the directory, I run `pipenv install`
+ - When everything was already installed, I ran `pipenv shell`
+ - Then, I will see `(CEOS-research) (base) ronny@ronny:~/Documents/repos/github/ceos/CEOS-research$` in my terminal
+ 
+ If I want to check where my virtualenv is: `pipenv --venv`
+ 
+ If I installed a package with pipenv, it will be shown in the Pipfile. If I 
+ need to uninstall it, I can run `pipenv uninstall name_package`. This will 
+ remove the package also from the Pip files.
+ 
+ To activate the environment, that we are working on, we need to run `pipenv shell`
+ 
+ To check the status of the packages `pipenv check`
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -102,6 +102,41 @@ If I have a project already started by someone else, and it have a pip file +
  
  To check the status of the packages `pipenv check`
 
+## Check arguments of a python function
+
+```
+dir(function_name)
+```
+
+## How to debug on python?
+
+First, I need to install pdbpp to run in sticky mode:
+
+```
+pip install pdbpp
+```
+Then I need to include `breakpoint` at the beginning of the code lines that
+I want to run the test.
+
+Then, in the terminal, I can open the file with:
+
+```
+python -m pdb file.py
+```
+ 
+These are the commands:
+
+```
+sticky start para iniciar
+
+n(ext) para siguiente linea
+
+s(tep) para entrar a depurar una funcion
+
+si estoy en sticky no tengo que estar poniendo el list todo el tiempo
+
+j(ump) para brincarme por numero de linea
+```
 
 
 

@@ -532,6 +532,199 @@ iris %&gt;%
   &lt;fct&gt;   &lt;int&gt;
 1 setosa     50
 </code></pre>
+<h1 id="build-package-from-the-terminal">Build package from the terminal</h1>
+<p>clean and install package from the command line:</p>
+<pre><code class="language-bash">R CMD REMOVE docmaker
+R CMD INSTALL docmaker .
+</code></pre>
+<h1 id="code-functions-challenges">Code functions challenges</h1>
+<p>Quick notes about short R code and functions things that usually I don’t
+do and I tend to forget.</p>
+<h2 id="change-specific-values-in-all-columns-for-nas">Change specific values in all columns for NA’s</h2>
+<p>A data frame with <code>-9999</code> values in many columns that need to be replace
+with <code>NA</code>’s values:</p>
+<pre><code class="language-r"># libraries
+library(dplyr)
+
+# Test data frame
+test &lt;- tribble(~a, ~b, ~c,
+                &quot;a&quot;, 2, -9999,
+                &quot;b&quot;, 3, 5,
+                &quot;c&quot;, -9999, 6,
+                &quot;d&quot;, -9999, -9999)
+
+# Solution
+test %&gt;% 
+  mutate_all(~replace(., . == -9999, NA))
+</code></pre>
+<pre><code># A tibble: 4 × 3
+  a         b     c
+  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 a         2    NA
+2 b         3     5
+3 c        NA     6
+4 d        NA    NA
+</code></pre>
+<h2 id="a-function-to-play-with-google-drive">A function to play with google drive</h2>
+<p>A mock-up documented function to connect with the google drive API
+through R, check the files that exist in the drive folder, compare to
+what you have in your local folder and download just those that you
+don’t have locally.</p>
+<p>Could be part of some workflow in an organization that uses google drive
+as their site to keep their data files (like a research lab)</p>
+<pre><code class="language-r">#' @import dplyr
+NULL
+
+#' @title Download data from google drive
+#' 
+#' @author Ronny Alexander Hernández Mora
+#' 
+#' @description This function will check in a local folder, the existing files
+#' and compare which ones are missing from an specific folder in google drive.
+#' It will download the missing files
+#' 
+#' @param drive_path The folder in google drive containing the files
+#' @param local_directory The local folder in which we want to download the 
+#' files from google drive.
+#' 
+#' @example 
+#' \dontrun{
+#' get_drive_data(drive_path = &quot;data_workflows/data&quot;, 
+#'                local_directory = &quot;datos&quot;)
+#'}
+#'
+get_drive_data &lt;- function(drive_path, local_directory) {
+
+  options(gargle_oauth_email = &quot;my_email@gmail.com&quot;)
+
+  # Revisar archivos locales
+  archivos_existentes &lt;- fs::dir_ls(local_directory) %&gt;% 
+    stringr::str_remove(paste0(local_directory, &quot;/&quot;))
+
+  # Revisar archivos en drive
+  camino &lt;- drive_path
+
+  # Check data available
+  archivos_drive &lt;- googledrive::drive_ls(path = camino)
+
+  # archivos_drive &lt;- archivos %&gt;% 
+  #   select(name)
+
+  # Obtener nombres de archivos faltantes
+  # Suponiendo que siempre tenemos mas archivos en drive
+  archivos_faltantes &lt;- archivos_drive %&gt;% 
+    filter(!name %in% archivos_existentes)
+
+  # Loop para traerse archivos que estan en drive pero no locales
+  for (i in archivos_faltantes$name) {
+    archivos_faltantes %&gt;%
+      select(id) %&gt;%
+      slice(1) %&gt;%
+      pull() %&gt;%
+      googledrive::drive_download(
+        path = paste0(&quot;datos/&quot;, i), overwrite = TRUE
+      )
+  }
+}
+</code></pre>
+<p>After the function is loaded in your Global environment, coupled with a
+<code>map()</code> and if all the data files have the same variables, we can read
+everything together in just one data frame:</p>
+<pre><code class="language-r"># Check drive and download data ------------------------------
+get_drive_data(drive_path = &quot;data_workflows/data&quot;, 
+               local_directory = &quot;datos&quot;)
+# Read data --------------------------------------------------
+# Create object with files of interest
+files &lt;- dir_ls(path = &quot;datos&quot;, glob = &quot;datos/principe_*&quot;)
+
+principe &lt;- files %&gt;% 
+  map_dfr(read_csv, .id = &quot;file_id&quot;)
+</code></pre>
+<h2 id="create-questions-with-yesno-package">Create questions with <code>yesno</code> package</h2>
+<p>If we have functions that require the confirmation of the user, we can
+use the <code>yesno</code> package to create questions and the answer options:</p>
+<pre><code class="language-r">library(yesno)
+publicar &lt;- function(){
+  respuesta &lt;- yesno::yesno(&quot;¿Desea publicar las notas?&quot;,
+                            yes = &quot;Estoy seguro de publicarlas&quot;,
+                            no = &quot;No, es un error&quot;,
+                            no = &quot;NOOO, yo no quiero publicar nada&quot;)
+
+  if (respuesta == TRUE) {
+    print(&quot;Los correos han sido enviados&quot;)
+  } else {
+    print(&quot;No se envio nada&quot;)
+  }
+}
+
+#publicar()
+</code></pre>
+<h1 id="stringr-tips"><code>stringr</code> tips</h1>
+<p>How many hours have I spent looking how to solve a regex?</p>
+<p>A lot!</p>
+<p>So here I have some quick notes on things that I have solved before and
+forget about it pretty often.</p>
+<h2 id="how-to-extract-numbers-from-a-string">How to extract numbers from a string</h2>
+<p>Sometimes, I need to extract just the numbers that I can find in a
+string. To achieve this, I can use the following function:</p>
+<pre><code class="language-r">library(stringr)
+
+string_with_numbers &lt;- c(&quot;01 uno&quot;, &quot;02 dos&quot;)
+
+str_extract(string_with_numbers , &quot;\\d+&quot;)
+</code></pre>
+<pre><code>[1] "01" "02"
+</code></pre>
+<h2 id="extract-string-between-brackets">Extract string between brackets</h2>
+<pre><code class="language-r">library(stringr)
+library(tibble)
+library(dplyr)
+library(tidyr)
+
+## The data frames with the column that I need
+check &lt;- tribble(
+  ~geo,
+  &quot;{\&quot;geodesic\&quot;:false,\&quot;type\&quot;:\&quot;Point\&quot;,\&quot;coordinates\&quot;:[-79.94739867829001,44.3105986723403]}&quot; , 
+  &quot;{\&quot;geodesic\&quot;:false,\&quot;type\&quot;:\&quot;Point\&quot;,\&quot;coordinates\&quot;:[-79.94714795170373,44.310596361431216]}&quot;,
+  &quot;{\&quot;geodesic\&quot;:false,\&quot;type\&quot;:\&quot;Point\&quot;,\&quot;coordinates\&quot;:[-79.9468972251475,44.31059404997191]}&quot; , 
+  &quot;{\&quot;geodesic\&quot;:false,\&quot;type\&quot;:\&quot;Point\&quot;,\&quot;coordinates\&quot;:[-79.9466464986213,44.31059173796237]}&quot; , 
+  &quot;{\&quot;geodesic\&quot;:false,\&quot;type\&quot;:\&quot;Point\&quot;,\&quot;coordinates\&quot;:[-79.94639577212517,44.3105894254026]}&quot; , 
+  &quot;{\&quot;geodesic\&quot;:false,\&quot;type\&quot;:\&quot;Point\&quot;,\&quot;coordinates\&quot;:[-79.9461450456591,44.310587112292595]}&quot; 
+)
+
+## Solution 1 (Didn't work)
+check %&gt;% 
+  mutate(test = str_extract(geo, &quot;\\[|\\]&quot;) ) %&gt;% 
+  select(test)
+</code></pre>
+<pre><code># A tibble: 6 × 1
+  test 
+  &lt;chr&gt;
+1 [    
+2 [    
+3 [    
+4 [    
+5 [    
+6 [
+</code></pre>
+<pre><code class="language-r"># Solution 2 (This one works!)
+check %&gt;% 
+  mutate(test = str_extract(geo, &quot;\\[(.*?)\\]&quot;) ) %&gt;% 
+  select(test) %&gt;% 
+  separate(col = &quot;test&quot;, into = c(&quot;lat&quot;, &quot;long&quot;), sep = &quot;,&quot;) %&gt;% 
+  mutate(lat = str_extract(lat, &quot;-?[0-9.]+&quot;),
+         long = str_extract(long, &quot;-?[0-9.]+&quot;))
+</code></pre>
+<pre><code># A tibble: 6 × 2
+  lat                long              
+  &lt;chr&gt;              &lt;chr&gt;             
+1 -79.94739867829001 44.3105986723403  
+2 -79.94714795170373 44.310596361431216
+3 -79.9468972251475  44.31059404997191 
+4 -79.9466464986213  44.31059173796237 
+5 -79.94639577212517 44.3105894254026  
+6 -79.9461450456591  44.310587112292595
+</code></pre>
 
 
 

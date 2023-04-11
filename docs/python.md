@@ -3,7 +3,7 @@
 This is the section to include all notes related to python development.
 
 
-## **Set up python conda environment**
+# **Set up python conda environment**
 
 This notes are here just as a reference. **Don't use anaconda**. If I need
 a tool to manage environments, it's preferable to use **pipenv** or **venv**.
@@ -46,7 +46,7 @@ conda install spyder
 conda create --name gee python = 3.5
 ```
 
-## Environmental variables
+# Environmental variables
 
 If I have credentials that I need to use in one project, what I can do is to
 store them as a system environmental variable and then call them later in the
@@ -81,7 +81,7 @@ There is one way to create the environmental variables in a file that we can
 include in the project and ignore it in the `.gitignore`. The steps for this
 are [here](https://developer.vonage.com/blog/21/10/01/python-environment-variables-a-primer#:~:text=Environment%20variables%20are%20variables%20you,it%20connects%20to%20the%20API.)
 
-## Working with pipenv
+# Working with pipenv
 
 If I have a project already started by someone else, and it have a pip file +
 `pipfile.lock` I can follow the next steps: 
@@ -102,13 +102,13 @@ If I have a project already started by someone else, and it have a pip file +
  
  To check the status of the packages `pipenv check`
 
-## Check arguments of a python function
+# Check arguments of a python function
 
 ```
 dir(function_name)
 ```
 
-## How to debug on python?
+# How to debug on python?
 
 First, I need to install pdbpp to run in sticky mode:
 

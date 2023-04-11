@@ -416,6 +416,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#check-arguments-of-a-python-function" class="md-nav__link">
+    Check arguments of a python function
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-debug-on-python" class="md-nav__link">
+    How to debug on python?
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -531,6 +545,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#check-arguments-of-a-python-function" class="md-nav__link">
+    Check arguments of a python function
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-debug-on-python" class="md-nav__link">
+    How to debug on python?
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -631,6 +659,29 @@ are <a href="https://developer.vonage.com/blog/21/10/01/python-environment-varia
  remove the package also from the Pip files.</p>
 <p>To activate the environment, that we are working on, we need to run <code>pipenv shell</code></p>
 <p>To check the status of the packages <code>pipenv check</code></p>
+<h2 id="check-arguments-of-a-python-function">Check arguments of a python function</h2>
+<pre><code>dir(function_name)
+</code></pre>
+<h2 id="how-to-debug-on-python">How to debug on python?</h2>
+<p>First, I need to install pdbpp to run in sticky mode:</p>
+<pre><code>pip install pdbpp
+</code></pre>
+<p>Then I need to include <code>breakpoint</code> at the beginning of the code lines that
+I want to run the test.</p>
+<p>Then, in the terminal, I can open the file with:</p>
+<pre><code>python -m pdb file.py
+</code></pre>
+<p>These are the commands:</p>
+<pre><code>sticky start para iniciar
+
+n(ext) para siguiente linea
+
+s(tep) para entrar a depurar una funcion
+
+si estoy en sticky no tengo que estar poniendo el list todo el tiempo
+
+j(ump) para brincarme por numero de linea
+</code></pre>
 
 
 

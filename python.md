@@ -102,6 +102,14 @@ If I have a project already started by someone else, and it have a pip file +
  
  To check the status of the packages `pipenv check`
 
+## Check arguments of a python function
+
+```
+dir(function_name)
+```
+
+## How to debug on python?
+
 
 
 

@@ -3,6 +3,8 @@ title: "R code and functions challenges"
 author: "Ronny A. Hernández Mora"
 date: "14/02/2022"
 output: html_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -29,6 +31,6 @@ test <- tribble(~a, ~b, ~c,
 
 # Solution
 test %>% 
-  mutate_all(~na_if(., -9999))
+  mutate_all(~replace(., . == -9999, NA))
 ```
 

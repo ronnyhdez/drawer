@@ -9,21 +9,6 @@ with `NA`’s values:
     # libraries
     library(dplyr)
 
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:terra':
-    ## 
-    ##     intersect, union
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
     # Test data frame
     test <- tribble(~a, ~b, ~c,
                     "a", 2, -9999,
@@ -33,7 +18,7 @@ with `NA`’s values:
 
     # Solution
     test %>% 
-      mutate_all(~na_if(., -9999))
+      mutate_all(~replace(., . == -9999, NA))
 
     ## # A tibble: 4 × 3
     ##   a         b     c

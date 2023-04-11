@@ -1,0 +1,32 @@
+---
+title: "R notes"
+subtitle: "All notes related to R"
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+# Include ifelse within a pipeline
+
+
+In case we are working in a data pipeline, but in the middle we need to
+include a condiciontal statement, we can do it in the following way:
+
+
+```{r}
+library(dplyr)
+library(janitor)
+
+status <- "most liked"
+
+iris %>% 
+  clean_names() %>% 
+  {if (status == "most liked") {
+    filter(., species == "setosa")
+  } else {
+    filter(., species %in% c("versicolor", "virginica") )
+  }} %>% 
+  group_by(species) %>% 
+  tally()
+```
+

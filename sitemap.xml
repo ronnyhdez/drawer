@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://ronnyhdez.github.io/drawer/R/</loc>
+         <lastmod>2023-04-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://ronnyhdez.github.io/drawer/bash_scripts/</loc>
          <lastmod>2023-04-11</lastmod>
          <changefreq>daily</changefreq>

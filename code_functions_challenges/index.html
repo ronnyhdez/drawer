@@ -227,6 +227,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../R/" class="md-nav__link">
+        R
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../bash_scripts/" class="md-nav__link">
         Bash Terminal topics
       </a>
@@ -526,21 +541,6 @@ with <code>NA</code>’s values:</p>
 <pre><code># libraries
 library(dplyr)
 
-## 
-## Attaching package: 'dplyr'
-
-## The following objects are masked from 'package:terra':
-## 
-##     intersect, union
-
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-
 # Test data frame
 test &lt;- tribble(~a, ~b, ~c,
                 "a", 2, -9999,
@@ -550,7 +550,7 @@ test &lt;- tribble(~a, ~b, ~c,
 
 # Solution
 test %&gt;% 
-  mutate_all(~na_if(., -9999))
+  mutate_all(~replace(., . == -9999, NA))
 
 ## # A tibble: 4 × 3
 ##   a         b     c

@@ -371,68 +371,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Python notes
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         Python notes
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#set-up-python-conda-environment" class="md-nav__link">
-    Set up python conda environment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#environmental-variables" class="md-nav__link">
-    Environmental variables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-pipenv" class="md-nav__link">
-    Working with pipenv
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#check-arguments-of-a-python-function" class="md-nav__link">
-    Check arguments of a python function
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-debug-on-python" class="md-nav__link">
-    How to debug on python?
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -518,49 +459,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#set-up-python-conda-environment" class="md-nav__link">
-    Set up python conda environment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#environmental-variables" class="md-nav__link">
-    Environmental variables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-pipenv" class="md-nav__link">
-    Working with pipenv
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#check-arguments-of-a-python-function" class="md-nav__link">
-    Check arguments of a python function
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-debug-on-python" class="md-nav__link">
-    How to debug on python?
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -580,7 +478,7 @@
 
 <h1 id="python-notes">Python notes</h1>
 <p>This is the section to include all notes related to python development.</p>
-<h2 id="set-up-python-conda-environment"><strong>Set up python conda environment</strong></h2>
+<h1 id="set-up-python-conda-environment"><strong>Set up python conda environment</strong></h1>
 <p>This notes are here just as a reference. <strong>Don't use anaconda</strong>. If I need
 a tool to manage environments, it's preferable to use <strong>pipenv</strong> or <strong>venv</strong>.</p>
 <p>I have faced many problems within projects when trying to program in python
@@ -616,7 +514,7 @@ conda install spyder
 </ul>
 <pre><code>conda create --name gee python = 3.5
 </code></pre>
-<h2 id="environmental-variables">Environmental variables</h2>
+<h1 id="environmental-variables">Environmental variables</h1>
 <p>If I have credentials that I need to use in one project, what I can do is to
 store them as a system environmental variable and then call them later in the
 python script. This can be achieve with the following steps:</p>
@@ -643,7 +541,7 @@ print(os.environ[my_password])
 <p>There is one way to create the environmental variables in a file that we can 
 include in the project and ignore it in the <code>.gitignore</code>. The steps for this
 are <a href="https://developer.vonage.com/blog/21/10/01/python-environment-variables-a-primer#:~:text=Environment%20variables%20are%20variables%20you,it%20connects%20to%20the%20API.">here</a></p>
-<h2 id="working-with-pipenv">Working with pipenv</h2>
+<h1 id="working-with-pipenv">Working with pipenv</h1>
 <p>If I have a project already started by someone else, and it have a pip file +
 <code>pipfile.lock</code> I can follow the next steps: </p>
 <ul>
@@ -659,10 +557,10 @@ are <a href="https://developer.vonage.com/blog/21/10/01/python-environment-varia
  remove the package also from the Pip files.</p>
 <p>To activate the environment, that we are working on, we need to run <code>pipenv shell</code></p>
 <p>To check the status of the packages <code>pipenv check</code></p>
-<h2 id="check-arguments-of-a-python-function">Check arguments of a python function</h2>
+<h1 id="check-arguments-of-a-python-function">Check arguments of a python function</h1>
 <pre><code>dir(function_name)
 </code></pre>
-<h2 id="how-to-debug-on-python">How to debug on python?</h2>
+<h1 id="how-to-debug-on-python">How to debug on python?</h1>
 <p>First, I need to install pdbpp to run in sticky mode:</p>
 <pre><code>pip install pdbpp
 </code></pre>

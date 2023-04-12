@@ -302,5 +302,22 @@ https://hpcc.ucr.edu/manuals_linux-cluster_terminalIDE.html
 https://gist.github.com/tgirke/7a7c197b443243937f68c422e5471899
 
 
+# Using NerdTree
+
+When I have a nvim session open, I can open a NerdTree panel with:
+
+```
+:NERDTree
+```
+
+Once I have to or panels open, I can move between them with `Ctrl + w`
+
+If I'm browsing the files, and I want to open them, this can be useful:
+
+```
+enter = open the file in the current window
+s = open file in vertical split window
+i = open file in horizontal split window
+```
 
 

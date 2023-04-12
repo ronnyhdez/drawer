@@ -265,6 +265,28 @@ const plantNeedsWater = (day) => {
 const plantNeedsWater = day => day === 'Wednesday' ? true : false;
 ```
 
+## Callback functions
+
+It's when a function is passed to another one as an argument. The function
+can be invoked  during the execution of that higher order function. Remember
+that in JS functions are objects, so functions can be passed as arguments.
+
+```
+const isEven = (n) => {
+	return n % 2 == 0
+}
+
+let printMsg = (evenFunc, num) => {
+	const isNumEven = evenFunc(num);
+	console.log(`The number ${num} is an even number: ${isNumEven}.`)
+}
+
+// Pass in isEven as the callback function
+printMsg(isEven, 4); 
+
+// Prints: The number 4 is an even number: True.
+```
+
 ## Scope pollution
 
 Scoping rules are the same as in R. Nothing new. But there is one phenomena
@@ -373,3 +395,83 @@ from scratch.
    line editing.
 
 
+# A short game in js
+
+The idea was to create the 'rock, paper, scissors' game using the concepts
+of creating a function and the ifelse.
+
+```
+console.log('hi');
+
+const getUserChoice = (userInput) => {
+  userInput = userInput.toLowerCase();
+  if (userInput === 'rock') {
+    return (userInput);
+  } else if (userInput === 'paper') {
+    return(userInput);
+  } else if (userInput === 'scissors') {
+    return(userInput)
+  } else {
+    console.log('Error, option not available');
+  }
+}
+
+const getComputerChoice = () => {
+  compNumber = Math.floor(Math.random() * 3 )
+  let compChoice = ''
+
+  switch(compNumber) {
+    case 0:
+      compChoice = 'rock';
+      break;
+    case 1:
+      compChoice = 'paper';
+      break;
+    case 2:
+      compChoice = 'scissors';
+      break;
+    }
+  return(compChoice)
+}
+
+const determineWinner = (userChoice, computerChoice) => {
+  if (userChoice === computerChoice) {
+    return('It\'s a tie!')
+  }
+
+  if (userChoice === 'rock') {
+    if (computerChoice === 'paper') {
+      return('Computer won')
+    } else {
+      return('Human won')
+    }
+  }
+
+   if (userChoice === 'paper') {
+    if (computerChoice === 'scissors') {
+      return('Computer won')
+    } else {
+      return('Human won')
+    }
+  }
+
+   if (userChoice === 'scissors') {
+    if (computerChoice === 'rock') {
+      return('Computer won')
+    } else {
+      return('Human won')
+    }
+  }
+}
+
+const playGame = () => {
+  let userChoice = getUserChoice('paper')
+  console.log(userChoice)  
+  let computerChoice = getComputerChoice()
+  console.log(computerChoice)
+
+  console.log(determineWinner(userChoice, computerChoice))
+}
+
+playGame()
+```

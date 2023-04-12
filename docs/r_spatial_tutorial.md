@@ -174,15 +174,14 @@ but it’s not on CRAN, so I downloaded directly from the
     # At this point, we should have the data in the path indicated
 
     # Explore the downloaded data:
-    library(fs)
     library(terra)
+
     file <- file.path(here::here(), "data/MOD09GA.A2015006.h09v07.006.2015295062629.hdf")
     r <- rast(file)
 
 
     datadir <- file.path(dirname(tempdir()), "_modis")
     mf <- file.path(datadir, "MOD09A1.A2009361.h21v08.006.2015198070255.hdf")
-    library(terra)
     r <- rast(mf[1])
     r
 
@@ -214,10 +213,12 @@ I have the problem that I cannot read the downloaded files
                          password = passwd)
     mf
 
+    library(terra)
 
     datadir <- file.path(dirname(tempdir()), "_modis")
+
     mf <- file.path(datadir, "MOD09A1.A2009361.h21v08.006.2015198070255.hdf")
-    library(terra)
+
     r <- terra::rast(mf[1])
     r
 
